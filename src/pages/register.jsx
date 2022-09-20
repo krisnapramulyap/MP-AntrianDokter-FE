@@ -111,15 +111,11 @@ export default function Register() {
                                     style={styleLabel}
                                 />
                             </Form.Group>
-                            <Form.Group className="mb-3">
-                                <Form.Label>Jenis Kelamin</Form.Label>
-                                <Form.Control
-                                    type="text"
-                                    // ref={jeniskelaminField}
-                                    placeholder="Pilih Salah Satu"
-                                    style={styleLabel}
-                                />
-                            </Form.Group>
+                            <Form.Select aria-label="Default select example">
+                                <option>Pilih Salah Satu</option>
+                                <option value="1">Laki-Laki</option>
+                                <option value="2">Perempuan</option>
+                                </Form.Select>
                             <Form.Group className="mb-3">
                                 <Form.Label>Password</Form.Label>
                                 <Form.Control
