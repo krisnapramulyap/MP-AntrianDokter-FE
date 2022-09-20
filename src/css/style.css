@@ -58,3 +58,33 @@
     margin-left: 130px;
 
 }
+
+/* register */
+.regist-left {
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: cover;
+}
+
+.regist-right {
+  margin-top: 20%;
+  margin-bottom: 20%;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+.arrowregister {
+  display: none;
+}
+
+.regist-right p {
+  margin-top: 40px;
+  margin-left: 85px;
+}
+
+.regist-right h1 {
+  font-weight: bold;
+  font-size: 24px;
+  color: black;
+  font-weight: 700;
+}
