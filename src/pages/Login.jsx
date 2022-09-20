@@ -10,6 +10,11 @@ import logo from '../images/logo.png';
 export default function Login() {
     const navigate = useNavigate();
 
+    const navigateToAdmin = () => {
+        // 👇️ navigate to /contacts
+        navigate('/admin');
+    };
+
     const colourButton = {
         backgroundColor: '#008864',
         borderRadius: '8px',
@@ -107,7 +112,8 @@ export default function Login() {
                             <Button style={colourButton} className="w-100 button1" type="submit">
                                 Masuk
                             </Button>
-                            <Button style={colourButton} className="w-100 button2" type="submit">
+
+                            <Button onClick={navigateToAdmin} style={colourButton} className="w-100 button2" type="submit">
                                 Login as Admin
                             </Button>
                             <p>
