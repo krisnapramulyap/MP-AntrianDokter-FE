@@ -4,6 +4,7 @@ import "./index.css";
 import { Provider } from "react-redux";
 import { store } from "./app/store";
 import Home from "./pages/Home";
+import Register from "./pages/register";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -13,6 +14,7 @@ render(
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
     </Router>
   </Provider>,
