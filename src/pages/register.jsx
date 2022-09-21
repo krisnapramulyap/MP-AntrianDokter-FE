@@ -7,45 +7,55 @@ import "../css/style.css"
 import PICT1 from '../images/Queue-amico 1.png';
 
 export default function Register() {
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
-    // const nameField = useRef("");
-    // const emailField = useRef("");
-    // const passwordField = useRef("");
+    const nameField = useRef("");
+    const emailField = useRef("");
+    const genderField = useRef("");
+    const passwordField = useRef("");
+    const NIKField = useRef("");
+    const addressField = useRef("");
+    const dateOfBirthField = useRef("");
 
-    // const [errorResponse, setErrorResponse] = useState({
-    //     isError: false,
-    //     message: "",
-    // });
+    const [errorResponse, setErrorResponse] = useState({
+        isError: false,
+        message: "",
+    });
 
-    // const onRegister = async (e) => {
-    //     e.preventDefault();
+    const onRegister = async (e) => {
+        e.preventDefault();
 
-    //     try {
-    //         const userToRegisterPayload = {
-    //             name: nameField.current.value,
-    //             email: emailField.current.value,
-    //             password: passwordField.current.value,
-    //         };
+        try {
+            const userToRegisterPayload = {
+                name: nameField.current.value,
+                email: emailField.current.value,
+                NIK: NIKField.current.value,
+                address: addressField.current.value,
+                password: passwordField.current.value,
+                dateOfBirth: dateOfBirthField.current.value,
+                gender: genderField.current.value,
+            };
 
-    //         const registerRequest = await axios.post(
-    //             "https://binar-final-challenge-vespa-be.herokuapp.com/v1/register",
-    //             userToRegisterPayload
-    //         );
+            const registerRequest = await axios.post(
+                "http://localhost:3000/api/patients/register",
+                userToRegisterPayload
+            );
+            console.log(registerRequest)
 
-    //         const registerResponse = registerRequest.data;
+            const registerResponse = registerRequest;
+            console.log(registerResponse)
 
-    //         if (registerResponse.status) navigate("/login");
-    //     } catch (err) {
-    //         console.log(err);
-    //         const response = err.response.data;
+            if (registerResponse.status) navigate("/login");
+        } catch (err) {
+            console.log(err);
+            const response = err.response.data;
 
-    //         setErrorResponse({
-    //             isError: true,
-    //             message: response.message,
-    //         });
-    //     }
-    // };
+            setErrorResponse({
+                isError: true,
+                message: response.message,
+            });
+        }
+    };
 
     const colourButton = {
         backgroundColor: '#008864',
@@ -61,7 +71,6 @@ export default function Register() {
         color: '#008864',
         fontWeight: 'bold',
     }
-
     return (
         <Container fluid="true">
             <Row >
@@ -74,12 +83,12 @@ export default function Register() {
                             <FiArrowLeft />
                         </Link>
                         <h1 className="mb-3">Daftar</h1>
-                        <Form className="">
+                        <Form onSubmit={onRegister} className="">
                             <Form.Group className="mb-3 formlogin">
                                 <Form.Label>Nama Lengkap</Form.Label>
                                 <Form.Control
                                     type="text"
-                                    // ref={nameField}
+                                    ref={nameField}
                                     placeholder="Masukan Nama Lengkap"
                                     style={styleLabel}
                                 />
@@ -88,7 +97,7 @@ export default function Register() {
                                 <Form.Label>NIK</Form.Label>
                                 <Form.Control
                                     type="text"
-                                    // ref={nikField}
+                                    ref={NIKField}
                                     placeholder="Masukan NIK"
                                     style={styleLabel}
                                 />
@@ -97,7 +106,7 @@ export default function Register() {
                                 <Form.Label>Email</Form.Label>
                                 <Form.Control
                                     type="text"
-                                    // ref={emailField}
+                                    ref={emailField}
                                     placeholder="Masukan Email"
                                     style={styleLabel}
                                 />
@@ -106,28 +115,42 @@ export default function Register() {
                                 <Form.Label>Tanggal Lahir</Form.Label>
                                 <Form.Control
                                     type="date"
-                                    // ref={emailField}
-                                    // placeholder="Masukan Email"
+                                    ref={dateOfBirthField}
+                                    placeholder="Masukan Email"
                                     style={styleLabel}
                                 />
                             </Form.Group>
-                            <Form.Select aria-label="Default select example">
-                                <option>Pilih Salah Satu</option>
-                                <option value="1">Laki-Laki</option>
-                                <option value="2">Perempuan</option>
-                                </Form.Select>
+                            <Form.Group className="mb-3">
+                                <Form.Label>Alamat</Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    ref={addressField}
+                                    placeholder="Masukan Alamat"
+                                    style={styleLabel}
+                                />
+                            </Form.Group >
+
+                            <Form.Group className="mb-3">
+                                <Form.Label>Jenis Kelamin</Form.Label>
+                                <select className="form-select">
+                                    <option hidden>Pilih Salah Satu</option>
+                                    <option ref={genderField} value="Pria">Laki Laki</option>
+                                    <option ref={genderField} value="Wanita">Perempuan</option>
+                                </select>
+                            </Form.Group>
+
                             <Form.Group className="mb-3">
                                 <Form.Label>Password</Form.Label>
                                 <Form.Control
                                     type="password"
-                                    // ref={passwordField}
+                                    ref={passwordField}
                                     placeholder="Masukkan Password"
                                     style={styleLabel}
                                 />
                             </Form.Group>
-                            {/* {errorResponse.isError && (
+                            {errorResponse.isError && (
                                 <Alert variant="danger">{errorResponse.message}</Alert>
-                            )} */}
+                            )}
                             <Button className="w-100" type="submit" style={colourButton}>
                                 Daftar
                             </Button>
@@ -139,5 +162,6 @@ export default function Register() {
                 </Col>
             </Row>
         </Container>
+
     );
 }

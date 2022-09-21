@@ -30,45 +30,47 @@ export default function Login() {
         fontWeight: 'bold'
     }
 
-    // const emailField = useRef("");
-    // const passwordField = useRef("");
+    const emailField = useRef("");
+    const passwordField = useRef("");
 
     const [errorResponse, setErrorResponse] = useState({
         isError: false,
         message: "",
     });
 
-    // const onLogin = async (e) => {
-    //     e.preventDefault();
+    const onLogin = async (e) => {
+        e.preventDefault();
 
-    //     try {
-    //         const userToLoginPayload = {
-    //             email: emailField.current.value,
-    //             password: passwordField.current.value,
-    //         };
+        try {
+            const userToLoginPayload = {
+                email: emailField.current.value,
+                password: passwordField.current.value,
+            };
 
-    //         const loginRequest = await axios.post(
-    //             "https://binar-final-challenge-vespa-be.herokuapp.com/v1/login",
-    //             userToLoginPayload
-    //         );
+            const loginRequest = await axios.post(
+                "http://localhost:3000/api/patients/login",
+                userToLoginPayload
+            );
+            console.log(loginRequest)
 
-    //         const loginResponse = loginRequest.data;
+            const loginResponse = loginRequest;
+            console.log(loginResponse)
 
-    //         if (loginResponse.status) {
-    //             localStorage.setItem("token", loginResponse.data.token);
+            if (loginResponse.status) {
+                localStorage.setItem("token", loginResponse.data.token);
 
-    //             navigate("/");
-    //         }
-    //     } catch (err) {
-    //         console.log(err);
-    //         const response = err.response.data;
+                navigate("/");
+            }
+        } catch (err) {
+            console.log(err);
+            const response = err.response.data;
 
-    //         setErrorResponse({
-    //             isError: true,
-    //             message: response.message,
-    //         });
-    //     }
-    // };
+            setErrorResponse({
+                isError: true,
+                message: response.message,
+            });
+        }
+    };
 
     return (
         <Container fluid="true">
@@ -87,12 +89,12 @@ export default function Login() {
                         </Col>
 
                         <h1 className="mb-3 masuk">Masuk</h1>
-                        <Form className="">
+                        <Form onSubmit={onLogin} className="">
                             <Form.Group className="mb-3 formlogin">
                                 <Form.Label>Email</Form.Label>
                                 <Form.Control
                                     type="text"
-                                    // ref={emailField}
+                                    ref={emailField}
                                     placeholder="Masukkan Email"
                                     style={styleLabel}
                                 />
@@ -101,7 +103,7 @@ export default function Login() {
                                 <Form.Label>Password</Form.Label>
                                 <Form.Control
                                     type="password"
-                                    // ref={passwordField}
+                                    ref={passwordField}
                                     placeholder="Masukkan Password"
                                     style={styleLabel}
                                 />
