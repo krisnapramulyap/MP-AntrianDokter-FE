@@ -19,12 +19,21 @@ export default function Login() {
         backgroundColor: '#008864',
         borderRadius: '8px',
     };
+    const colourButton2 = {
+        backgroundColor: '#FFFFFF',
+        borderRadius: '8px',
+    };
 
     const styleLabel = {
-        borderRadius: '10px',
+        borderRadius: '8px',
     };
 
     const styleLink = {
+        textDecoration: 'none',
+        color: '#008864',
+        fontWeight: 'bold'
+    }
+    const styleLink2 = {
         textDecoration: 'none',
         color: '#008864',
         fontWeight: 'bold'
@@ -72,12 +81,12 @@ export default function Login() {
         }
     };
 
-
+    
     return (
         <Container fluid="true">
             <Row >
-                <Col className="login-left">
-                    <img src={login} alt="Second Hand" width="100%" height="100%" />
+                <Col className="login-left logo1">
+                    <img src={login} alt="Second Hand" width="600px" height="600px" />
                 </Col>
 
                 <Col>
