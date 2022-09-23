@@ -116,7 +116,6 @@ export default function Register() {
                                 <Form.Control
                                     type="date"
                                     ref={dateOfBirthField}
-                                    placeholder="Masukan Email"
                                     style={styleLabel}
                                 />
                             </Form.Group>
