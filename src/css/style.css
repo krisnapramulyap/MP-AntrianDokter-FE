@@ -51,15 +51,34 @@
 
 /* Login - Admin */
 .login-right-admin {
-    margin-top: 15%;
+    margin-top: 25%;
     margin-bottom: 15%;
     margin-left: 15%;
     margin-right: 15%;
 }
 
+.login-left-admin {
+    width: 466px;
+    height: 466px;
+    margin-top: 242px;
+    margin-left: 127px;
+    margin-bottom: 242px;
+}
+
 .login-right-admin p {
     margin-top: 40px;
     margin-left: 130px;
+
+}
+
+.masuk-admin {
+    text-align: center;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+}
+
 
 }
 
@@ -92,3 +111,4 @@
   color: black;
   font-weight: 700;
 }
+
