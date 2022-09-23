@@ -19,9 +19,13 @@ export default function Login() {
         backgroundColor: '#008864',
         borderRadius: '8px',
     };
+    const colourButton2 = {
+        backgroundColor: '#FFFFFF',
+        borderRadius: '8px',
+    };
 
     const styleLabel = {
-        borderRadius: '10px',
+        borderRadius: '8px',
     };
 
     const styleLink = {
@@ -29,52 +33,62 @@ export default function Login() {
         color: '#008864',
         fontWeight: 'bold'
     }
+    const styleLink2 = {
+        textDecoration: 'none',
+        color: '#008864',
+        fontWeight: 'bold'
+    }
 
-    // const emailField = useRef("");
-    // const passwordField = useRef("");
+    const emailField = useRef("");
+    const passwordField = useRef("");
 
     const [errorResponse, setErrorResponse] = useState({
         isError: false,
         message: "",
     });
 
-    // const onLogin = async (e) => {
-    //     e.preventDefault();
+    const onLogin = async (e) => {
+        e.preventDefault();
 
-    //     try {
-    //         const userToLoginPayload = {
-    //             email: emailField.current.value,
-    //             password: passwordField.current.value,
-    //         };
+        try {
+            const userToLoginPayload = {
+                email: emailField.current.value,
+                password: passwordField.current.value,
+            };
 
-    //         const loginRequest = await axios.post(
-    //             "https://binar-final-challenge-vespa-be.herokuapp.com/v1/login",
-    //             userToLoginPayload
-    //         );
+            const loginRequest = await axios.post(
+                "http://localhost:3000/api/patients/login",
+                userToLoginPayload
+            );
+            console.log(loginRequest)
 
-    //         const loginResponse = loginRequest.data;
+            const loginResponse = loginRequest;
+            console.log(loginResponse)
 
-    //         if (loginResponse.status) {
-    //             localStorage.setItem("token", loginResponse.data.token);
+            if (loginResponse.status) {
+                localStorage.setItem("token", loginResponse.data.token);
 
-    //             navigate("/");
-    //         }
-    //     } catch (err) {
-    //         console.log(err);
-    //         const response = err.response.data;
+                navigate("/");
+            }
+        } catch (err) {
+            console.log(err);
+            const response = err.response.data;
 
-    //         setErrorResponse({
-    //             isError: true,
-    //             message: response.message,
-    //         });
-    //     }
-    // };
+            setErrorResponse({
+                isError: true,
+                message: response.message,
+            });
+        }
+    };
+
 
     return (
         <Container fluid="true">
             <Row >
-                <Col className="login-left">
-                    <img src={login} alt="Second Hand" width="100%" height="100%" />
+                <Col >
+                    <div className="login-left">
+                        <img src={login} alt="Second Hand" width="600px" height="600px" />
+                    </div>
                 </Col>
 
                 <Col>
@@ -87,12 +101,12 @@ export default function Login() {
                         </Col>
 
                         <h1 className="mb-3 masuk">Masuk</h1>
-                        <Form className="">
+                        <Form onSubmit={onLogin} className="">
                             <Form.Group className="mb-3 formlogin">
                                 <Form.Label>Email</Form.Label>
                                 <Form.Control
                                     type="text"
-                                    // ref={emailField}
+                                    ref={emailField}
                                     placeholder="Masukkan Email"
                                     style={styleLabel}
                                 />
@@ -101,7 +115,7 @@ export default function Login() {
                                 <Form.Label>Password</Form.Label>
                                 <Form.Control
                                     type="password"
-                                    // ref={passwordField}
+                                    ref={passwordField}
                                     placeholder="Masukkan Password"
                                     style={styleLabel}
                                 />

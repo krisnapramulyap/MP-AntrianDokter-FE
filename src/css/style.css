@@ -1,19 +1,21 @@
 /* Login */
 .login-left {
-    background-repeat: no-repeat;
-    background-position: 50%;
-    background-size: cover;
+    width: 600px;
+    height: 600px;
+    margin-top: 175px;
+    margin-bottom: 175px;
+    margin-left: 96px;
 }
 
 .login-right {
-    margin-top: 15%;
-    margin-bottom: 15%;
+    margin-top: 25%;
+    margin-bottom: 182px;
     margin-left: 15%;
-    margin-right: 15%;
+    margin-right: 134px;
 }
 
 .arrowlogin {
-    display: none;
+    display: flex;
 }
 
 .login-right p {
@@ -23,7 +25,7 @@
 
 .logo {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
 }
 
 .masuk {
@@ -35,7 +37,9 @@
 }
 
 .button2 {
+    background-color: white;
     margin-top: 16px;
+    color:#008864;
 }
 
 .login-right h1 {
