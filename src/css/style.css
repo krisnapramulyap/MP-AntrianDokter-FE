@@ -8,7 +8,7 @@
 }
 
 .login-right {
-    margin-top: 3%;
+    margin-top: 25%;
     margin-bottom: 182px;
     margin-left: 15%;
     margin-right: 134px;
@@ -37,9 +37,9 @@
 }
 
 .button2 {
+    background-color: white;
     margin-top: 16px;
-    background-color: aliceblue;
-    color: rgb(255, 0, 0);
+    color:#008864;
 }
 
 .login-right h1 {

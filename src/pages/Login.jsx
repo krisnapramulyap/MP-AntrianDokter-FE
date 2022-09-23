@@ -81,12 +81,14 @@ export default function Login() {
         }
     };
 
-    
+
     return (
         <Container fluid="true">
             <Row >
-                <Col className="login-left logo1">
-                    <img src={login} alt="Second Hand" width="600px" height="600px" />
+                <Col >
+                    <div className="login-left">
+                        <img src={login} alt="Second Hand" width="600px" height="600px" />
+                    </div>
                 </Col>
 
                 <Col>
