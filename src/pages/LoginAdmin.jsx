@@ -4,7 +4,7 @@ import axios from "axios";
 import { FiArrowLeft } from "react-icons/fi";
 import { Link, useNavigate } from "react-router-dom";
 import "../css/style.css"
-import login from '../images/login.png';
+import admin from '../images/admin.png';
 import logo from '../images/logo2.png';
 
 export default function Login() {
@@ -16,7 +16,7 @@ export default function Login() {
     };
 
     const styleLabel = {
-        borderRadius: '10px',
+        borderRadius: '8px',
     };
 
     const styleLink = {
@@ -68,8 +68,10 @@ export default function Login() {
     return (
         <Container fluid="true">
             <Row >
-                <Col className="login-left">
-                    <img src={login} alt="Second Hand" width="100%" height="100%" />
+                <Col >
+                    <div className="login-left-admin">
+                        <img src={admin} alt="Second Hand" weight />
+                    </div>
                 </Col>
 
                 <Col>
@@ -81,7 +83,7 @@ export default function Login() {
                             <img src={logo} alt="Second Hand" className="logo" />
                         </Col>
 
-                        <h1 className="mb-3 masuk">Masuk</h1>
+                        <h1 className="mb-3 masuk-admin">Masuk</h1>
                         <Form className="">
                             <Form.Group className="mb-3 formlogin">
                                 <Form.Label>Email</Form.Label>
