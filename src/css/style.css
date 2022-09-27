@@ -47,10 +47,14 @@
     color: #ffffff;
 }
 
-t .button2:hover {
+.button2:hover {
     background-color: #008864;
     color: white;
 
+}
+
+.btn-primary {
+    color: #000000;
 }
 
 .login-right h1 {

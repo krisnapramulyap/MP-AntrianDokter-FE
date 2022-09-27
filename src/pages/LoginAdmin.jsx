@@ -13,6 +13,7 @@ export default function Login() {
     const colourButton = {
         backgroundColor: '#008864',
         borderRadius: '8px',
+        border: '1px solid #008864',
     };
 
     const styleLabel = {
@@ -22,7 +23,6 @@ export default function Login() {
     const styleLink = {
         textDecoration: 'none',
         color: '#008864',
-        fontWeight: 'bold'
     }
 
     const emailField = useRef("");
