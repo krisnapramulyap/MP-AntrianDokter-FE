@@ -23,6 +23,7 @@ export default function Login() {
     const styleLink = {
         textDecoration: 'none',
         color: '#008864',
+        fontWeight: 'bold',
     }
 
     const emailField = useRef("");

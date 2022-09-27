@@ -42,19 +42,7 @@
 }
 
 .button2 {
-    background-color: white;
     margin-top: 16px;
-    color: #ffffff;
-}
-
-.button2:hover {
-    background-color: #008864;
-    color: white;
-
-}
-
-.btn-primary {
-    color: #000000;
 }
 
 .login-right h1 {
