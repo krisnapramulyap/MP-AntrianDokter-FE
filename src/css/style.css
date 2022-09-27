@@ -1,3 +1,7 @@
+.body {
+    font-family: 'Poppins';
+}
+
 /* Login */
 .login-left {
     width: 600px;
@@ -20,7 +24,7 @@
 
 .login-right p {
     margin-top: 40px;
-    margin-left: 110px;
+    margin-left: 80px;
 }
 
 .logo {
@@ -32,14 +36,13 @@
     text-align: center;
 }
 
+
 .button1 {
     margin-top: 16px;
 }
 
 .button2 {
-    background-color: white;
     margin-top: 16px;
-    color:#008864;
 }
 
 .login-right h1 {
@@ -50,6 +53,12 @@
 }
 
 /* Login - Admin */
+
+.masuk {
+    font-weight: 700;
+    font-size: 24px;
+}
+
 .login-right-admin {
     margin-top: 25%;
     margin-bottom: 15%;
@@ -67,7 +76,7 @@
 
 .login-right-admin p {
     margin-top: 40px;
-    margin-left: 130px;
+    margin-left: 140px;
 
 }
 
@@ -81,31 +90,30 @@
 
 /* register */
 .regist-left {
-  background-repeat: no-repeat;
-  background-position: 50%;
-  background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: cover;
 }
 
 .regist-right {
-  margin-top: 20%;
-  margin-bottom: 20%;
-  margin-left: 20%;
-  margin-right: 20%;
+    margin-top: 20%;
+    margin-bottom: 20%;
+    margin-left: 20%;
+    margin-right: 20%;
 }
 
 .arrowregister {
-  display: none;
+    display: none;
 }
 
 .regist-right p {
-  margin-top: 40px;
-  margin-left: 85px;
+    margin-top: 40px;
+    margin-left: 85px;
 }
 
 .regist-right h1 {
-  font-weight: bold;
-  font-size: 24px;
-  color: black;
-  font-weight: 700;
+    font-weight: bold;
+    font-size: 24px;
+    color: black;
+    font-weight: 700;
 }
-

@@ -18,10 +18,14 @@ export default function Login() {
     const colourButton = {
         backgroundColor: '#008864',
         borderRadius: '8px',
+        border: '1px solid #008864',
     };
     const colourButton2 = {
+        textDecoration: 'none',
         backgroundColor: '#FFFFFF',
+        color: '#008864',
         borderRadius: '8px',
+        border: '1px solid #008864',
     };
 
     const styleLabel = {
@@ -31,13 +35,13 @@ export default function Login() {
     const styleLink = {
         textDecoration: 'none',
         color: '#008864',
-        fontWeight: 'bold'
-    }
+        fontWeight: 'bold',
+    };
     const styleLink2 = {
         textDecoration: 'none',
         color: '#008864',
-        fontWeight: 'bold'
-    }
+        fontWeight: 'bold',
+    };
 
     const emailField = useRef("");
     const passwordField = useRef("");
@@ -126,8 +130,7 @@ export default function Login() {
                             <Button style={colourButton} className="w-100 button1" type="submit">
                                 Masuk
                             </Button>
-
-                            <Button onClick={navigateToAdmin} style={colourButton} className="w-100 button2" type="submit">
+                            <Button onClick={navigateToAdmin} className="w-100 button2" style={colourButton2} type="submit">
                                 Login as Admin
                             </Button>
                             <p>
