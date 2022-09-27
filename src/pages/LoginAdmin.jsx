@@ -78,7 +78,7 @@ export default function Login() {
 
                 <Col>
                     <div className="login-right-admin">
-                        <Link to={"/"} className="arrowlogin" style={{ color: "black" }}>
+                        <Link to={"/login"} className="arrowlogin" style={{ color: "black" }}>
                             <FiArrowLeft />
                         </Link>
                         <Col className="logo">

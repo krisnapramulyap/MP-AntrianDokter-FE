@@ -21,122 +21,122 @@ export default function Login() {
     };
     const colourButton2 = {
         backgroundColor: '#FFFFFF',
-        borderRadius: '8px',
-    };
-
-    const styleLabel = {
-        borderRadius: '8px',
-    };
-
-    const styleLink = {
-        textDecoration: 'none',
         color: '#008864',
-        fontWeight: 'bold'
-    }
-    const styleLink2 = {
-        textDecoration: 'none',
-        color: '#008864',
-        fontWeight: 'bold'
-    }
+        borderRadius: '8px',
+};
 
-    const emailField = useRef("");
-    const passwordField = useRef("");
+const styleLabel = {
+    borderRadius: '8px',
+};
 
-    const [errorResponse, setErrorResponse] = useState({
-        isError: false,
-        message: "",
-    });
+const styleLink = {
+    textDecoration: 'none',
+    color: '#008864',
+    fontWeight: 'bold'
+}
+const styleLink2 = {
+    textDecoration: 'none',
+    color: '#008864',
+    fontWeight: 'bold'
+}
 
-    const onLogin = async (e) => {
-        e.preventDefault();
+const emailField = useRef("");
+const passwordField = useRef("");
 
-        try {
-            const userToLoginPayload = {
-                email: emailField.current.value,
-                password: passwordField.current.value,
-            };
+const [errorResponse, setErrorResponse] = useState({
+    isError: false,
+    message: "",
+});
 
-            const loginRequest = await axios.post(
-                "http://localhost:3000/api/patients/login",
-                userToLoginPayload
-            );
-            console.log(loginRequest)
+const onLogin = async (e) => {
+    e.preventDefault();
 
-            const loginResponse = loginRequest;
-            console.log(loginResponse)
+    try {
+        const userToLoginPayload = {
+            email: emailField.current.value,
+            password: passwordField.current.value,
+        };
 
-            if (loginResponse.status) {
-                localStorage.setItem("token", loginResponse.data.token);
+        const loginRequest = await axios.post(
+            "http://localhost:3000/api/patients/login",
+            userToLoginPayload
+        );
+        console.log(loginRequest)
 
-                navigate("/");
-            }
-        } catch (err) {
-            console.log(err);
-            const response = err.response.data;
+        const loginResponse = loginRequest;
+        console.log(loginResponse)
 
-            setErrorResponse({
-                isError: true,
-                message: response.message,
-            });
+        if (loginResponse.status) {
+            localStorage.setItem("token", loginResponse.data.token);
+
+            navigate("/");
         }
-    };
+    } catch (err) {
+        console.log(err);
+        const response = err.response.data;
+
+        setErrorResponse({
+            isError: true,
+            message: response.message,
+        });
+    }
+};
 
 
-    return (
-        <Container fluid="true">
-            <Row >
-                <Col >
-                    <div className="login-left">
-                        <img src={login} alt="Second Hand" width="600px" height="600px" />
-                    </div>
-                </Col>
+return (
+    <Container fluid="true">
+        <Row >
+            <Col >
+                <div className="login-left">
+                    <img src={login} alt="Second Hand" width="600px" height="600px" />
+                </div>
+            </Col>
 
-                <Col>
-                    <div className="login-right">
-                        <Link to={"/"} className="arrowlogin" style={{ color: "black" }}>
-                            <FiArrowLeft />
-                        </Link>
-                        <Col className="logo">
-                            <img src={logo} alt="Second Hand" className="logo" />
-                        </Col>
+            <Col>
+                <div className="login-right">
+                    <Link to={"/"} className="arrowlogin" style={{ color: "black" }}>
+                        <FiArrowLeft />
+                    </Link>
+                    <Col className="logo">
+                        <img src={logo} alt="Second Hand" className="logo" />
+                    </Col>
 
-                        <h1 className="mb-3 masuk">Masuk</h1>
-                        <Form onSubmit={onLogin} className="">
-                            <Form.Group className="mb-3 formlogin">
-                                <Form.Label>Email</Form.Label>
-                                <Form.Control
-                                    type="text"
-                                    ref={emailField}
-                                    placeholder="Masukkan Email"
-                                    style={styleLabel}
-                                />
-                            </Form.Group>
-                            <Form.Group className="mb-3">
-                                <Form.Label>Password</Form.Label>
-                                <Form.Control
-                                    type="password"
-                                    ref={passwordField}
-                                    placeholder="Masukkan Password"
-                                    style={styleLabel}
-                                />
-                            </Form.Group>
-                            {errorResponse.isError && (
-                                <Alert variant="danger">{errorResponse.message}</Alert>
-                            )}
-                            <Button style={colourButton} className="w-100 button1" type="submit">
-                                Masuk
-                            </Button>
-
-                            <Button onClick={navigateToAdmin} style={colourButton} className="w-100 button2" type="submit">
-                                Login as Admin
-                            </Button>
-                            <p>
-                                Belum punya akun?  <Link style={styleLink} to="/register">Daftar di sini</Link>
-                            </p>
-                        </Form>
-                    </div>
-                </Col>
-            </Row>
-        </Container>
-    );
+                    <h1 className="mb-3 masuk">Masuk</h1>
+                    <Form onSubmit={onLogin} className="">
+                        <Form.Group className="mb-3 formlogin">
+                            <Form.Label>Email</Form.Label>
+                            <Form.Control
+                                type="text"
+                                ref={emailField}
+                                placeholder="Masukkan Email"
+                                style={styleLabel}
+                            />
+                        </Form.Group>
+                        <Form.Group className="mb-3">
+                            <Form.Label>Password</Form.Label>
+                            <Form.Control
+                                type="password"
+                                ref={passwordField}
+                                placeholder="Masukkan Password"
+                                style={styleLabel}
+                            />
+                        </Form.Group>
+                        {errorResponse.isError && (
+                            <Alert variant="danger">{errorResponse.message}</Alert>
+                        )}
+                        <Button style={colourButton} className="w-100 button1" type="submit">
+                            Masuk
+                        </Button>
+                        <Button onClick={navigateToAdmin} className="w-100 button2" style={colourButton2} type="submit">
+                            Login as Admin
+                        </Button>
+                        <p>
+                            Belum punya akun?  <Link style={styleLink} to="/register">Daftar di sini</Link>
+                        </p>
+                    </Form>
+                </div>
+            </Col>
+        </Row>
+    </Container>
+);
 }
