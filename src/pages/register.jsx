@@ -4,7 +4,8 @@ import axios from "axios";
 import { FiArrowLeft } from "react-icons/fi";
 import { Link, useNavigate } from "react-router-dom";
 import "../css/style.css"
-import PICT1 from '../images/Queue-amico 1.png';
+import PICT1 from '../images/Frame 191.png';
+import '@fontsource/poppins';
 
 export default function Register() {
     const navigate = useNavigate();
@@ -74,8 +75,11 @@ export default function Register() {
     return (
         <Container fluid="true">
             <Row >
-                <Col className="regist-left">
-                    <img src={PICT1} alt="Second Hand" width="100%" height="100%" />
+                <Col>
+                <div className="regist-left">
+                <img src={PICT1} alt="MediQ" width="608px" height="611px" />
+                </div>
+                    
                 </Col>
                 <Col >
                     <div className="regist-right">
@@ -89,7 +93,7 @@ export default function Register() {
                                 <Form.Control
                                     type="text"
                                     ref={nameField}
-                                    placeholder="Masukan Nama Lengkap"
+                                    placeholder="Masukkan Nama Lengkap"
                                     style={styleLabel}
                                 />
                             </Form.Group>
@@ -98,7 +102,7 @@ export default function Register() {
                                 <Form.Control
                                     type="text"
                                     ref={NIKField}
-                                    placeholder="Masukan NIK"
+                                    placeholder="Masukkan Nomor NIK"
                                     style={styleLabel}
                                 />
                             </Form.Group>
@@ -107,7 +111,7 @@ export default function Register() {
                                 <Form.Control
                                     type="text"
                                     ref={emailField}
-                                    placeholder="Masukan Email"
+                                    placeholder="Masukkan Email"
                                     style={styleLabel}
                                 />
                             </Form.Group>
@@ -124,7 +128,7 @@ export default function Register() {
                                 <Form.Control
                                     type="text"
                                     ref={addressField}
-                                    placeholder="Masukan Alamat"
+                                    placeholder="Masukkan Alamat"
                                     style={styleLabel}
                                 />
                             </Form.Group >
