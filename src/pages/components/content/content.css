@@ -1,0 +1,155 @@
+.body {
+    font-family: 'Poppins';
+}
+
+.text1 {
+    text-align: center;
+    margin-top: 50px;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 140%;
+    color: #333333;
+}
+
+.text2 {
+    text-align: center;
+    margin-top: 160px;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 140%;
+    color: #333333;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.card {
+    width: 376px;
+    height: 376px;
+    border: 1px solid #D0D0D0;
+    /* box shadow */
+    filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 0.5));
+    border-radius: 20px;
+}
+
+.card-body {
+    width: 376px;
+    height: 376px;
+    border: 1px solid #D0D0D0;
+    /* box shadow */
+    filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 0.5));
+    border-radius: 20px;
+}
+
+.card-body p {
+    color: #333333;
+    text-align: center;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 140%;
+}
+
+.photo1 {
+    padding-top: 56px;
+    padding-left: 63px;
+    padding-right: -10px;
+}
+
+.photo2 {
+    padding-top: 52px;
+    padding-left: 40px;
+
+}
+
+.photo3 {
+    padding-top: 57px;
+    padding-left: 35px;
+}
+
+.why-text p {
+    text-align: center;
+}
+
+.button {
+    border-radius: 8px;
+    margin-top: 60px;
+    text-align: center;
+}
+
+.button1 {
+    width: 260px;
+    height: 48px;
+}
+
+.button2 {
+    width: 260px;
+    height: 48px;
+    margin-left: 35px;
+}
+
+.section3 {
+    margin-top: 60px;
+}
+
+.size-service {
+    width: 472px;
+    height: 442px;
+}
+
+.size-service2 {
+    width: 542px;
+    height: 377px;
+}
+
+.grid2 {
+    margin-top: 103PX;
+}
+
+.grid2 h3 {
+
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 120%;
+    color: #008864;
+}
+
+.grid2 p {
+    margin-top: 23px;
+    display: flex;
+    justify-content: center;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 140%;
+}
+
+
+
+.section4 {
+    margin-top: 126px;
+}
+
+.grid3 {
+    margin-top: 53PX;
+}
+
+.grid3 h3 {
+
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 120%;
+    color: #008864;
+}
+
+.grid3 p {
+    margin-top: 23px;
+    display: flex;
+    justify-content: center;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 140%;
+}
+
+.download {
+    width: 1440px;
+    height: 503px;
+    margin-top: 275px;
+    margin-bottom: 96px;
+}
