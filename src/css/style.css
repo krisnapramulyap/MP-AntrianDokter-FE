@@ -3,6 +3,10 @@
 }
 
 /* Login */
+*{
+    font-family: 'Poppins';
+}
+
 .login-left {
     width: 600px;
     height: 600px;
@@ -89,31 +93,31 @@
 }
 
 /* register */
+
 .regist-left {
-    background-repeat: no-repeat;
-    background-position: 50%;
-    background-size: cover;
+    margin-top: 148px;
+    margin-left: 112px;
+    margin-right: 131px;
+    margin-bottom: 191px;
+    width: 608px;
+    height: 611px;
+    left: 112px;
+    top: 155px;
 }
 
-.regist-right {
-    margin-top: 20%;
-    margin-bottom: 20%;
-    margin-left: 20%;
-    margin-right: 20%;
-}
-
-.arrowregister {
-    display: none;
-}
-
-.regist-right p {
-    margin-top: 40px;
-    margin-left: 85px;
-}
-
-.regist-right h1 {
+.regist-right h1 { 
     font-weight: bold;
     font-size: 24px;
     color: black;
     font-weight: 700;
+    text-align: center;
+    font-family: 'Poppins';
 }
+
+.regist-right {
+  width: 452px;
+  height: 658px;
+  left: 854px;
+  top: 146px;
+}
+
