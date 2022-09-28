@@ -1,3 +1,127 @@
+
+.body {
+    font-family: 'Poppins';
+}
+
+/* Login */
+*{
+    font-family: 'Poppins';
+}
+
+.login-left {
+    width: 600px;
+    height: 600px;
+    margin-top: 175px;
+    margin-bottom: 175px;
+    margin-left: 96px;
+}
+
+.login-right {
+    margin-top: 25%;
+    margin-bottom: 182px;
+    margin-left: 15%;
+    margin-right: 134px;
+}
+
+.arrowlogin {
+    display: flex;
+}
+
+.login-right p {
+    margin-top: 40px;
+    margin-left: 80px;
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.masuk {
+    text-align: center;
+}
+
+
+.button1 {
+    margin-top: 16px;
+}
+
+.button2 {
+    margin-top: 16px;
+}
+
+.login-right h1 {
+    font-weight: bold;
+    font-size: 24px;
+    color: black;
+    font-weight: 700;
+}
+
+/* Login - Admin */
+
+.masuk {
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.login-right-admin {
+    margin-top: 25%;
+    margin-bottom: 15%;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+.login-left-admin {
+    width: 466px;
+    height: 466px;
+    margin-top: 242px;
+    margin-left: 127px;
+    margin-bottom: 242px;
+}
+
+.login-right-admin p {
+    margin-top: 40px;
+    margin-left: 140px;
+
+}
+
+.masuk-admin {
+    text-align: center;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+}
+
+/* register */
+
+.regist-left {
+    margin-top: 148px;
+    margin-left: 112px;
+    margin-right: 131px;
+    margin-bottom: 191px;
+    width: 608px;
+    height: 611px;
+    left: 112px;
+    top: 155px;
+}
+
+.regist-right h1 { 
+    font-weight: bold;
+    font-size: 24px;
+    color: black;
+    font-weight: 700;
+    text-align: center;
+    font-family: 'Poppins';
+}
+
+.regist-right {
+  width: 452px;
+  height: 658px;
+  left: 854px;
+  top: 146p
+  
 .bg-green {
     background-color:seagreen;
 }
+
