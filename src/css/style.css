@@ -1,3 +1,7 @@
+.body {
+    font-family: 'Poppins';
+}
+
 /* Login */
 *{
     font-family: 'Poppins';
@@ -24,7 +28,7 @@
 
 .login-right p {
     margin-top: 40px;
-    margin-left: 110px;
+    margin-left: 80px;
 }
 
 .logo {
@@ -36,14 +40,13 @@
     text-align: center;
 }
 
+
 .button1 {
     margin-top: 16px;
 }
 
 .button2 {
-    background-color: white;
     margin-top: 16px;
-    color:#008864;
 }
 
 .login-right h1 {
@@ -54,6 +57,12 @@
 }
 
 /* Login - Admin */
+
+.masuk {
+    font-weight: 700;
+    font-size: 24px;
+}
+
 .login-right-admin {
     margin-top: 25%;
     margin-bottom: 15%;
@@ -71,7 +80,7 @@
 
 .login-right-admin p {
     margin-top: 40px;
-    margin-left: 130px;
+    margin-left: 140px;
 
 }
 
@@ -83,7 +92,7 @@
     line-height: 36px;
 }
 
-/* /* register */
+/* register */
 
 .regist-left {
     margin-top: 148px;
@@ -111,3 +120,4 @@
   left: 854px;
   top: 146px;
 }
+
