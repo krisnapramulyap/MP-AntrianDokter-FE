@@ -5,7 +5,7 @@ import { FiArrowLeft } from "react-icons/fi";
 import { Link, useNavigate } from "react-router-dom";
 import "../css/style.css"
 import admin from '../images/admin.png';
-import logo from '../images/logo2.png';
+import logo from '../images/logo2.svg';
 
 export default function Login() {
     const navigate = useNavigate();
@@ -48,7 +48,7 @@ export default function Login() {
                 userToLoginPayload
             );
             console.log(loginRequest)
-            
+
             const loginResponse = loginRequest;
             console.log(loginResponse)
 
@@ -82,8 +82,8 @@ export default function Login() {
                         <Link to={"/login"} className="arrowlogin" style={{ color: "black" }}>
                             <FiArrowLeft />
                         </Link>
-                        <Col className="logo">
-                            <img src={logo} alt="Second Hand" className="logo" />
+                        <Col className="logo2">
+                            <img src={logo} alt="Second Hand" className="logo2" />
                         </Col>
 
                         <h1 className="mb-3 masuk">Masuk</h1>
