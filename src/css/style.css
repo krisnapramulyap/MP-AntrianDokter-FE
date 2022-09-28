@@ -1,10 +1,9 @@
-
 .body {
     font-family: 'Poppins';
 }
 
 /* Login */
-*{
+* {
     font-family: 'Poppins';
 }
 
@@ -106,7 +105,7 @@
     top: 155px;
 }
 
-.regist-right h1 { 
+.regist-right h1 {
     font-weight: bold;
     font-size: 24px;
     color: black;
@@ -116,12 +115,12 @@
 }
 
 .regist-right {
-  width: 452px;
-  height: 658px;
-  left: 854px;
-  top: 146p
-  
-.bg-green {
-    background-color:seagreen;
+    width: 452px;
+    height: 658px;
+    left: 854px;
+    top: 146px;
 }
 
+.bg-green {
+    background-color: seagreen;
+}
