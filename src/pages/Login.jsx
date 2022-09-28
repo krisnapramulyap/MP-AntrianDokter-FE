@@ -101,7 +101,7 @@ export default function Login() {
                             <FiArrowLeft />
                         </Link>
                         <div className="logo">
-                            <img src={logo} alt="Second Hand" className="logo" />
+                            <img src={logo} alt="Second Hand" className="logologin" />
                         </div>
 
                         <h1 className="mb-3 masuk">Masuk</h1>

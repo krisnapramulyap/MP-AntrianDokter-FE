@@ -34,7 +34,14 @@
 
 .logo {
     margin-left: 65px;
-    margin-bottom: 25px;
+    margin-bottom: 60px;
+}
+
+.logologin {
+    width: 237px;
+    height: 114px;
+    margin-left: 20px;
+    margin-bottom: 60px;
 }
 
 .logo2 {
