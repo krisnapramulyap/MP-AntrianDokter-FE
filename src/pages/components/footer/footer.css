@@ -1,0 +1,29 @@
+.logo {
+    width: 158px;
+    height: 76px;
+}
+
+.section1 p {
+    margin-top: -6%;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 140%;
+    color: #A9A9A9;
+}
+
+.section2 {
+    justify-items: center;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.section2 p {
+    margin-top: -20px;
+    margin-bottom: 20px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 140%;
+    color: #2C3131;
+}

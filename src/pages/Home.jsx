@@ -1,8 +1,19 @@
-import React from "react";
+import { HomeNavbar } from "./components/navbar/navbar"
+import { FooterHome } from "./components/footer/footer"
+import { Carousel } from "./components/carousel/carousel"
+import { Content } from "./components/content/content"
+import "../css/style.css"
+import "../css/style.css"
 
-export default function Home() {
-    return (<div>
-
-<h1>123</h1>
-    </div >);
+function Home() {
+  return (
+    <div>
+      <HomeNavbar />
+      <Carousel />
+      <Content />
+      <FooterHome />
+    </div>
+  );
 }
+
+export default Home;
