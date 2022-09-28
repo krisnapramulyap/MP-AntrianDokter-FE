@@ -1,39 +1,16 @@
 import { HomeNavbar } from "./components/navbar/navbar"
 import { FooterHome } from "./components/footer/footer"
+import { Carousel } from "./components/carousel/carousel"
+import { Content } from "./components/content/content"
+import "../css/style.css"
 import "../css/style.css"
 
 function Home() {
   return (
     <div>
       <HomeNavbar />
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
+      <Carousel />
+      <Content />
       <FooterHome />
     </div>
   );
