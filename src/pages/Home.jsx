@@ -1,8 +1,12 @@
-import React from "react";
+import { HomeNavbar } from "./components/navbar/navbar"
+import "../css/style.css"
 
-export default function Home() {
-    return (<div>
-
-<h1>123</h1>
-    </div >);
+function Home() {
+  return (
+    <div>
+      <HomeNavbar/>
+    </div>
+  );
 }
+
+export default Home;
