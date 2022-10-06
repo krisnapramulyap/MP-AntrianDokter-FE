@@ -1,9 +1,7 @@
 import React from "react";
-
 import { HomeNavbar } from "./components/navbar/navbar"
 import { FooterHome } from "./components/footer/footer"
 import  Carousel2  from "./components/carousel/Carousel2"
-
 import { Form, FormGroup, Label, Input, Button } from "reactstrap";
 import "../css/style.css";
 
