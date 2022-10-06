@@ -1,3 +1,4 @@
+
 import React from "react";
 import { render } from "react-dom";
 import "./index.css";
@@ -22,6 +23,7 @@ render(
         <Route path="/login" element={<Login />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/buatjanji" element={<Janji />} />
+        <Route path="/profile" element={<Profile/>} />
       </Routes>
     </Router>
   </Provider>,
