@@ -35,7 +35,7 @@ export function Content() {
     return (
         <>
             <div className='text1'>
-                <p>Gimana sih cara <Link style={styleLink} to="/">Buat Janji</Link> Kunjungan? </p>
+                <p>Gimana sih cara <Link style={styleLink} to="/buatjanji">Buat Janji</Link> Kunjungan? </p>
             </div>
 
             <section className="grid-service">
@@ -75,12 +75,12 @@ export function Content() {
             </section>
 
             <div className='button'>
-                <Button style={colourButton} className='button1' >Buat Janji Temu</Button>{' '}
-                <Button style={colourButton2} className='button2' >Cek Antrian Hari Ini</Button>{' '}
+                <Button style={colourButton} className='button1' href="/buatjanji" >Buat Janji Temu</Button>{' '}
+                <Button style={colourButton2} className='button2' href="/#" >Cek Antrian Hari Ini</Button>{' '}
             </div>
 
             <div className='text2'>
-                <p>Kenapa Harus <Link style={styleLink} to="/">Buat Janji</Link> pake <Link style={styleLink} to="/">MediQ</Link>? </p>
+                <p>Kenapa Harus <Link style={styleLink} to="/buatjanji">Buat Janji</Link> pake <Link style={styleLink} to="/">MediQ</Link>? </p>
             </div>
 
             <div className="container section3">
