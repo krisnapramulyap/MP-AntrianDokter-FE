@@ -77,7 +77,7 @@ export default function Janji() {
       );
       console.log(createRequest)
 
-      const createResponse = createRequest.data;
+      const createResponse = createRequest;
       console.log(createResponse)
 
       console.log(createResponse.status)
