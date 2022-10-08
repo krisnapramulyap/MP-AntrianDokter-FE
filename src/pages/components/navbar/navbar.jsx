@@ -61,7 +61,7 @@ export function HomeNavbar() {
         );
         console.log(currentUserRequest)
 
-        const currentUserResponse = currentUserRequest.data;
+        const currentUserResponse = currentUserRequest;
 
         console.log(currentUserResponse.status)
 
@@ -75,8 +75,6 @@ export function HomeNavbar() {
           setUser(currentUserResponse.data);
         }
 
-        console.log(addUser)
-        console.log(setUser)
       } catch (err) {
         setIsLoggedIn(false);
       }
