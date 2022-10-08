@@ -52,6 +52,7 @@ export default function Profile() {
 
             setData(dataUsers)
         } catch (err) {
+            setIsLoggedIn(false);
         }
     }
 
@@ -198,7 +199,7 @@ export default function Profile() {
 
                                 <Form.Group className="mb-3">
                                     <Form.Label>Jenis Kelamin</Form.Label>
-                                    <select className="form-select">
+                                    <select ref={genderField} className="form-select">
                                         <option hidden>Pilih Salah Satu</option>
                                         <option ref={genderField} selected={data.gender === "Pria" ? "selected" : ""} value="Pria">Laki Laki</option>
                                         <option ref={genderField} selected={data.gender === "Wanita" ? "selected" : ""} value="Wanita">Perempuan</option>
