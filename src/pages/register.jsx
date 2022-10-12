@@ -38,7 +38,7 @@ export default function Register() {
             };
 
             const registerRequest = await axios.post(
-                "https://mediq-backend.herokuapp.com//api/patients/register",
+                "https://mediq-backend.herokuapp.com/api/patients/register",
                 userToRegisterPayload
             );
             console.log(registerRequest)
