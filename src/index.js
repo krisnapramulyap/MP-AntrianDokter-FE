@@ -1,3 +1,4 @@
+
 import React from "react";
 import { render } from "react-dom";
 import "./index.css";
@@ -9,6 +10,7 @@ import Janji from "./pages/Janji";
 import Register from "./pages/register";
 import Login from "./pages/Login";
 import Admin from "./pages/LoginAdmin";
+import Profile from "./pages/Profile";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -22,6 +24,7 @@ render(
         <Route path="/login" element={<Login />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/buatjanji" element={<Janji />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
     </Router>
   </Provider>,

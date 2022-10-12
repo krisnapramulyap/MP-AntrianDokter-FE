@@ -1,13 +1,105 @@
 import React from "react";
+import { useRef, useEffect, useState } from "react";
+import { Link, useNavigate, Navigate, } from "react-router-dom";
+import axios from "axios";
 import { HomeNavbar } from "./components/navbar/navbar"
 import { FooterHome } from "./components/footer/footer"
-import  Carousel2  from "./components/carousel/Carousel2"
-import { Form, FormGroup, Label, Input, Button } from "reactstrap";
+import Carousel2 from "./components/carousel/Carousel2"
+// import { Form, FormGroup, Label, Input, Button } from "reactstrap";
+import { Form, Button, Alert, Row, Container, Col, } from "react-bootstrap";
 import "../css/style.css";
 
 
-function Janji() {
-  return (
+export default function Janji() {
+  const navigate = useNavigate();
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [data, setData] = useState([]);
+  const patientNameField = useRef("");
+  const patientNIKField = useRef("");
+  const examinationIdField = useRef("");
+
+  const [errorResponse, setErrorResponse] = useState({
+    isError: false,
+    message: "",
+  });
+
+  const colourButton = {
+    backgroundColor: '#008864',
+    borderRadius: '10px',
+  };
+
+  const styleLabel = {
+    borderRadius: '10px',
+  };
+
+  const getUsers = async () => {
+
+    try {
+      const token = localStorage.getItem("token");
+      const responseUsers = await axios.get(`http://localhost:3000/api/patients/who-am-i`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+      const dataUsers = await responseUsers.data;
+      console.log(dataUsers)
+
+      setData(dataUsers)
+    } catch (err) {
+      setIsLoggedIn(false);
+    }
+  }
+
+  const onCreate = async (e) => {
+    e.preventDefault();
+
+    try {
+      const token = localStorage.getItem("token");
+
+      const userToCreatePayload = {
+        name: patientNameField.current.value,
+        patientNIK: patientNIKField.current.value,
+        examinationId: examinationIdField.current.value,
+      };
+
+
+
+      const createRequest = await axios.post(
+        `http://localhost:3000/api/patients/booking`,
+        userToCreatePayload,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      console.log(createRequest)
+
+      const createResponse = createRequest;
+      console.log(createResponse)
+
+      console.log(createResponse.status)
+      if (createResponse.status) navigate("/");
+
+
+
+    } catch (err) {
+      const response = err.response.data;
+      setErrorResponse({
+        isError: true,
+        message: response.message,
+      });
+    }
+  };
+
+  useEffect(() => {
+    getUsers();
+  }, [])
+
+
+  return isLoggedIn ? (
     <div>
       <HomeNavbar />
       <div className="container">
@@ -20,7 +112,7 @@ function Janji() {
         <div className="row mr-4">
           <div className="col-6  container_janji">
             <div>
-              <Form>
+              {/* <Form>
                 <FormGroup>
                   <Label for="exampleEmail"> Nama Pasien </Label>
                   <Input
@@ -48,11 +140,46 @@ function Janji() {
                 <Button className="mt-3 mb-3 tombol">
                   Buat Janji Kunjungan
                 </Button>
+              </Form> */}
+              <Form onSubmit={onCreate}>
+                <Form.Group className="mb-3 formlogin">
+                  <Form.Label>Nama Lengkap</Form.Label>
+                  <Form.Control
+                    type="text"
+                    ref={patientNameField}
+                    placeholder="Masukkan Nama Lengkap"
+                    style={styleLabel}
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3">
+                  <Form.Label>NIK</Form.Label>
+                  <Form.Control
+                    type="text"
+                    ref={patientNIKField}
+                    placeholder="Masukkan Nomor NIK"
+                    style={styleLabel}
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3">
+                  <Form.Label>BPJS / Non BPJS</Form.Label>
+                  <select ref={examinationIdField} className="form-select">
+                    <option hidden>Pilih Salah Satu</option>
+                    <option ref={examinationIdField} value="1">BPJS</option>
+                    <option ref={examinationIdField} value="2">Non-BPJS</option>
+                  </select>
+                </Form.Group>
+                {errorResponse.isError && (
+                  <Alert variant="danger">{errorResponse.message}</Alert>
+                )}
+                <Button className="w-100 mt-3 mb-3 tombol" type="Buat Janji" style={colourButton}>
+                  Buat Janji Kunjungan
+                </Button>
               </Form>
+
             </div>
           </div>
           <div className="col-6 carosel_gambar">
-            <Carousel2/>
+            <Carousel2 />
             <div className="mx-auto text-center">
               <h3 className="my-4"><span className="font-weight-bold"> Butuh ke Dokter? </span> <span>pake <img src="../logo.png" width="80" alt="" /> aja </span></h3>
             </div>
@@ -62,12 +189,12 @@ function Janji() {
       <br />
       <br />
       <br />
-      <hr width="1300" className="mx-auto"/>
+      <hr width="1300" className="mx-auto" />
       <div className="py-4">
         <FooterHome />
       </div>
     </div>
-  );
+  ) : (
+    <Navigate to="/login" replace />);;
 }
 
-export default Janji;
