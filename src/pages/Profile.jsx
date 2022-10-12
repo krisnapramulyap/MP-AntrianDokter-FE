@@ -40,7 +40,7 @@ export default function Profile() {
     const getUsers = async () => {
         try {
             const token = localStorage.getItem("token");
-            const responseUsers = await axios.get(`http://localhost:3000/api/patients/who-am-i`,
+            const responseUsers = await axios.get(`https://mediq-backend.herokuapp.com/api/patients/who-am-i`,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`,
@@ -74,7 +74,7 @@ export default function Profile() {
 
 
             const updateRequest = await axios.put(
-                `http://localhost:3000/api/patients/${data.id}/detail`,
+                `https://mediq-backend.herokuapp.com/api/patients/${data.id}/detail`,
                 userToUpdatePayload,
                 {
                     headers: {
