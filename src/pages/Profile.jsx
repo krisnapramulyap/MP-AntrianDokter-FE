@@ -124,7 +124,7 @@ export default function Profile() {
                         </div>
 
                         <div className="text-profile-1">
-                            <h3>EditProfile</h3>
+                            <h4>EditProfile</h4>
                         </div>
 
                         <div className="icon-2">
@@ -132,7 +132,7 @@ export default function Profile() {
                         </div>
 
                         <div className="text-profile-2">
-                            <h3>Logout</h3>
+                            <h4>Logout</h4>
                         </div>
 
                     </Col>
