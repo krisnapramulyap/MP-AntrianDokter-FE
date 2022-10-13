@@ -23,6 +23,8 @@ export default function Janji() {
     message: "",
   });
 
+
+
   const colourButton = {
     backgroundColor: '#008864',
     borderRadius: '10px',
@@ -36,7 +38,7 @@ export default function Janji() {
 
     try {
       const token = localStorage.getItem("token");
-      const responseUsers = await axios.get(`http://localhost:3000/api/patients/who-am-i`,
+      const responseUsers = await axios.get(`https://mediq-backend.herokuapp.com/api/patients/who-am-i`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -67,7 +69,7 @@ export default function Janji() {
 
 
       const createRequest = await axios.post(
-        `http://localhost:3000/api/patients/booking`,
+        `https://mediq-backend.herokuapp.com/api/patients/booking`,
         userToCreatePayload,
         {
           headers: {

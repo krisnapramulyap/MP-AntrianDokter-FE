@@ -61,7 +61,7 @@ export default function Login() {
             };
 
             const loginRequest = await axios.post(
-                "http://localhost:3000/api/patients/login",
+                "https://mediq-backend.herokuapp.com/api/patients/login",
                 userToLoginPayload
             );
             console.log(loginRequest)
