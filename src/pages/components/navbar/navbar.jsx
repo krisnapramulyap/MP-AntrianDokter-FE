@@ -104,7 +104,7 @@ export function HomeNavbar() {
           <Nav className="me-auto ps-5">
             <Nav.Link href="#Beranda">Beranda</Nav.Link>
             <Nav.Link className="ps-5" href="#BuatJanji">Buat Janji</Nav.Link>
-            <Nav.Link className="ps-5" href="#TentangKami">Cek Antrian</Nav.Link>
+            <Nav.Link className="ps-5" href="/antrian">Cek Antrian</Nav.Link>
           </Nav>
           {!isLoggedIn ? (
             <Nav>
