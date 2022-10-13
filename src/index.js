@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import Register from "./pages/register";
 import Login from "./pages/Login";
 import Admin from "./pages/LoginAdmin";
+import Antrian from "./pages/Antrian";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -18,6 +19,7 @@ render(
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/antrian" element={<Antrian />} />
         <Route path="/admin" element={<Admin />} />
       </Routes>
     </Router>
