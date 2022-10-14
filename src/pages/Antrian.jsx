@@ -1,7 +1,8 @@
-import { Card, Container, Table, Button, Row, Col, } from "react-bootstrap";
+import { Card, Container, Table, Button, Row, Col, Modal  } from "react-bootstrap";
 import { HomeNavbar } from "./components/navbar/navbar"
 import { FooterHome } from "./components/footer/footer"
-
+import React, { useState } from 'react';
+import logo from '../images/logo.svg';
 
 export default function Antrian() {
     const cardStyle = {
@@ -53,10 +54,89 @@ export default function Antrian() {
         border: '#FCFCFC solid 1px',
     };
 
+    const modalStyle = {
+        padding: '40px 20px',
+        color: '#000000',
+        fontSize: '16px',
+        fontWeight: 'bold',
 
+    }
+
+    const modalBody = {
+        textAlign: 'center',
+        padding: '0',
+    }
+
+    const modalMuted = {
+        fontSize: '14px',
+        color: '#8A8A8A',
+        fontWeight: 'regular',
+        marginBottom: '23px',
+    };
+
+    const modalTable = {
+        textAlign: 'left',
+        borderColor: '#FFFFFF',
+        marginTop: '37px',
+        marginLeft: '123px',
+        maxWidth: '60%',
+    };
+
+    const modalTitle = {
+        fontSize: '44px',
+        color: '#008864',
+        fontWeight: 'bold',
+        marginBottom: '23px',
+    }
+
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
     return(
         <div >
+            <Modal
+                show={show}
+                onHide={handleClose}
+                backdrop="static"
+                keyboard={false}
+                style={modalStyle}
+            >
+                <Modal.Body style={modalBody}>
+                    <img alt="logo" src={logo} width='90' style={{ marginBottom: '8px', marginTop: '40px' }} />
+                    <p style={modalMuted}>Booking ID: 8577071</p>
+                    <h5 style={{ fontSize: '20px' }}>Nomor Antrian Anda</h5>
+                    <h2 style={modalTitle}>1362</h2>
+                    <div style={{ margin: '0 20px' }}>
+                    <hr/>
+                    </div>
+       
+                        <Table style={modalTable} size="sm">
+                                <tbody >
+                                    <tr>
+                                        <td>Nama</td>
+                                        <td>: Budi</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tanggal</td>
+                                        <td>: 27/09/2022</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Hari</td>
+                                        <td>: Selasa</td>
+                                    </tr>
+                                </tbody>
+                            </Table>
+                        <p style={modalMuted}>* Perkiraan dilayani pukul 07.00 WIB</p>
+                </Modal.Body>
+                <Modal.Footer style={{ border: 'none' }}>
+                
+                <Button variant="outline-danger" style={{ border: 'none' }} onClick={handleClose}>
+                    OK
+                </Button>
+                </Modal.Footer>
+            </Modal>
             <HomeNavbar />
             <Container style={{ paddingTop: '70px' }}>
                 <Row className="justify-content-md-center">
@@ -73,7 +153,7 @@ export default function Antrian() {
                             </Col>
                             </Row>
                         </Card>
-                        <Button className="mt-5 mb-3" variant="outline-success" style={buttonStyle}>
+                        <Button className="mt-5 mb-3" onClick={handleShow} variant="outline-success" style={buttonStyle}>
                         Cek Riwayat Antrian
                         </Button>
                     </Col>
