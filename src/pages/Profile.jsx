@@ -213,9 +213,10 @@ export default function Profile() {
                                 </Button>
                             </Form>
                         </div>
-                        <FooterHome />
                     </Col>
                 </Row>
+                <hr style={{ marginTop: '176px' }} />
+            <FooterHome />
             </Container>
         </div>
     ) : (

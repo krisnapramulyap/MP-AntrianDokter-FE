@@ -145,7 +145,7 @@
 
 .profile-right {
     margin-top: 50px;
-    margin-bottom: 892px;
+    /* margin-bottom: 892px; */
     margin-left: 422px;
     margin-right: 146px;
     width: 872px;
@@ -161,7 +161,7 @@
     width: 79px;
     height: 38px;
     margin-left: 96px;
-    margin-top: 110px;
+    margin-top: 50px;
     
 }
 
@@ -171,7 +171,7 @@
     width: 75px;
     height: 34px;
     margin-left: 195px;
-    margin-top: 114px;
+    margin-top: 52px;
     font-style: normal;
     font-weight: 500;
     font-size: 24px;
@@ -199,7 +199,7 @@
     font-style: normal;
     font-weight: 600;
     font-size: 20px;
-    margin-left: 195px;
+    margin-left: 192px;
     margin-top: 54px;
     color: #008864;
 
@@ -211,7 +211,7 @@
     width: 36px;
     height: 36px;
     margin-left: 96px;
-    margin-top: 105px;
+    margin-top: 112px;
     margin-bottom: 892px;
     margin-right: 146px;
 }
@@ -221,8 +221,8 @@
     text-align: center;
     width: 68px;
     height: 28px;
-    margin-left: 195px;
-    margin-top: 105px;
+    margin-left: 192px;
+    margin-top: 112px;
     font-style: normal;
     font-weight: 300;
     font-size: 20px;
@@ -263,8 +263,12 @@
     background-color: #008864;
     align-items: center;
     text-align: center;
-    color: #FFFFFF;
-
+    color: #FCFCFC;
+    font-style: normal;
+    font-size: 12px;
+    font-weight: medium;
+    line-height: 150%;
+    border:#FCFCFC solid 1px;
 }
 
 .antri {

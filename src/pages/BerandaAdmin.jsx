@@ -31,35 +31,73 @@ function BerandaAdmin() {
       </thead>
       <tbody>
         <tr>
-          <td>1305</td>
+          <td style={{ textAlign: 'center' }}>1305</td>
           <td>Devara Gandany</td>
           <td>Umum</td>
           <td>Dr.</td>
-          <td>23/09/2022</td>
+          <td style={{ textAlign: 'center' }}>23/09/2022</td>
           <td>Keluhan</td>
-          <td>Selesai</td>
+          <td><Button variant="link">Selesai</Button></td>
         </tr>
         <tr>
-          <td>1305</td>
+          <td style={{ textAlign: 'center' }}>1305</td>
           <td>Devara Gandany</td>
           <td>Umum</td>
           <td>Dr.</td>
-          <td>23/09/2022</td>
+          <td style={{ textAlign: 'center' }}>23/09/2022</td>
           <td>Keluhan</td>
-          <td>Selesai</td>
+          <td><Button variant="link">Selesai</Button></td>
           </tr>
         <tr>
-          <td>1305</td>
+          <td style={{ textAlign: 'center' }}>1305</td>
           <td>Devara Gandany</td>
           <td>Umum</td>
           <td>Dr.</td>
-          <td>23/09/2022</td>
+          <td style={{ textAlign: 'center' }}>23/09/2022</td>
           <td>Keluhan</td>
-          <td>Selesai</td>
+          <td><Button variant="link">Selesai</Button></td>
+        </tr>
+        <tr>
+          <td style={{ textAlign: 'center' }}>1305</td>
+          <td>Devara Gandany</td>
+          <td>Umum</td>
+          <td>Dr.</td>
+          <td style={{ textAlign: 'center' }}>23/09/2022</td>
+          <td>Keluhan</td>
+          <td><Button variant="link">Selesai</Button></td>
+        </tr>
+        <tr>
+          <td style={{ textAlign: 'center' }}>1305</td>
+          <td>Devara Gandany</td>
+          <td>Umum</td>
+          <td>Dr.</td>
+          <td style={{ textAlign: 'center' }}>23/09/2022</td>
+          <td>Keluhan</td>
+          <td><Button variant="link">Selesai</Button></td>
+        </tr>
+        <tr>
+          <td style={{ textAlign: 'center' }}>1305</td>
+          <td>Devara Gandany</td>
+          <td>Umum</td>
+          <td>Dr.</td>
+          <td style={{ textAlign: 'center' }}>23/09/2022</td>
+          <td>Keluhan</td>
+          <td><Button variant="link">Selesai</Button></td>
+        </tr>
+        <tr>
+          <td style={{ textAlign: 'center' }}>1305</td>
+          <td>Devara Gandany</td>
+          <td>Umum</td>
+          <td>Dr.</td>
+          <td style={{ textAlign: 'center' }}>23/09/2022</td>
+          <td>Keluhan</td>
+          <td><Button variant="link">Selesai</Button></td>
         </tr>
       </tbody>
     </Table>
     </div>
+    <hr style={{ marginTop: '895px' }} />
+            <FooterHome />
     </div>
   );
 }
