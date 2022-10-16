@@ -4,7 +4,7 @@
 }
 
 .section1 p {
-    margin-top: -6%;
+    margin-top: -2%;
     font-style: normal;
     font-weight: 500;
     font-size: 20px;
@@ -15,7 +15,7 @@
 .section2 {
     justify-items: center;
     text-align: center;
-    margin-top: 40px;
+    margin-top: 50px;
 }
 
 .section2 p {

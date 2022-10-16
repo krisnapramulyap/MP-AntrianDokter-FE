@@ -145,15 +145,15 @@
 
 .profile-right {
     margin-top: 50px;
-    margin-bottom: 892px;
+    /* margin-bottom: 892px; */
     margin-left: 422px;
     margin-right: 146px;
     width: 872px;
     height: 572px;
     left: 422px;
     top: 199px;
-    background: #EFEFEF;
-    border-radius: 20px;
+    /* background: #EFEFEF;
+    border-radius: 20px; */
 }
 
 .profile-left {
@@ -161,7 +161,7 @@
     width: 79px;
     height: 38px;
     margin-left: 96px;
-    margin-top: 110px;
+    margin-top: 50px;
     
 }
 
@@ -171,7 +171,7 @@
     width: 75px;
     height: 34px;
     margin-left: 195px;
-    margin-top: 114px;
+    margin-top: 52px;
     font-style: normal;
     font-weight: 500;
     font-size: 24px;
@@ -199,7 +199,7 @@
     font-style: normal;
     font-weight: 600;
     font-size: 20px;
-    margin-left: 195px;
+    margin-left: 192px;
     margin-top: 54px;
     color: #008864;
 
@@ -211,7 +211,7 @@
     width: 36px;
     height: 36px;
     margin-left: 96px;
-    margin-top: 105px;
+    margin-top: 112px;
     margin-bottom: 892px;
     margin-right: 146px;
 }
@@ -221,10 +221,87 @@
     text-align: center;
     width: 68px;
     height: 28px;
-    margin-left: 195px;
-    margin-top: 105px;
+    margin-left: 192px;
+    margin-top: 112px;
     font-style: normal;
     font-weight: 300;
     font-size: 20px;
     color: #333;
+}
+
+/* BerandaAdmin */
+
+.Textdaftar {
+    position: absolute;
+    width: 171px;
+    height: 34px;
+    left: 634px;
+    top: 120px;
+    font-style: normal;
+    font-family: Poppins;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 140%;
+    text-align: center;
+    color: #000000;
+}
+
+.Tabel {
+    position: absolute;
+    width: 1248px;
+    height: 288px;
+    left: 96px;
+    top: 194px;
+    background: #FFFFFF;
+    border: 1px solid #FCFCFC;
+    border-radius: 4px;
+
+    
+}
+
+.tabelcolour {
+    background-color: #008864;
+    align-items: center;
+    text-align: center;
+    color: #FCFCFC;
+    font-style: normal;
+    font-size: 12px;
+    font-weight: medium;
+    line-height: 150%;
+    border:#FCFCFC solid 1px;
+}
+
+.antri {
+    width: 92px;
+    height: 36px;
+}
+
+.pasien {
+    width: 224px;
+    height: 36px;
+}
+
+.poli {
+    width: 120px;
+    height: 36px;
+}
+
+.dokter {
+    width: 224px;
+    height: 36px;
+}
+
+.tgl {
+    width: 120px;
+    height: 36px;
+}
+
+.ket {
+    width: 362px;
+    height: 36px;
+}
+
+.selesai {
+    width: 105px;
+    height: 36px;
 }
