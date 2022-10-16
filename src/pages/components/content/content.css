@@ -74,15 +74,16 @@
     text-align: center;
 }
 
+
 .button1 {
     width: 260px;
     height: 48px;
+    margin-right: 50px;
 }
 
 .button2 {
     width: 260px;
     height: 48px;
-    margin-left: 35px;
 }
 
 .section3 {
@@ -148,8 +149,12 @@
 }
 
 .download {
-    width: 1440px;
+    width: 100%;
     height: 503px;
     margin-top: 275px;
     margin-bottom: 96px;
+}
+
+.picturedownload {
+    width: 100%;
 }

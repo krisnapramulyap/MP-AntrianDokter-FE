@@ -1,14 +1,13 @@
 import React from "react";
 import { useRef, useEffect, useState } from "react";
-import { Link, useNavigate, Navigate, } from "react-router-dom";
+import { Link, useNavigate, Navigate } from "react-router-dom";
 import axios from "axios";
-import { HomeNavbar } from "./components/navbar/navbar"
-import { FooterHome } from "./components/footer/footer"
-import Carousel2 from "./components/carousel/Carousel2"
+import { HomeNavbar } from "./components/navbar/navbar";
+import { FooterHome } from "./components/footer/footer";
+import Carousel2 from "./components/carousel/Carousel2";
 // import { Form, FormGroup, Label, Input, Button } from "reactstrap";
-import { Form, Button, Alert, Row, Container, Col, } from "react-bootstrap";
+import { Form, Button, Alert, Row, Container, Col } from "react-bootstrap";
 import "../css/style.css";
-
 
 export default function Janji() {
   const navigate = useNavigate();
@@ -23,36 +22,40 @@ export default function Janji() {
     message: "",
   });
 
-
+  const [successResponse, setSuccessResponse] = useState({
+    isSuccess: false,
+    message: "",
+  });
 
   const colourButton = {
-    backgroundColor: '#008864',
-    borderRadius: '10px',
+    backgroundColor: "#008864",
+    borderRadius: "10px",
   };
 
   const styleLabel = {
-    borderRadius: '10px',
+    borderRadius: "10px",
   };
 
   const getUsers = async () => {
-
     try {
       const token = localStorage.getItem("token");
-      const responseUsers = await axios.get(`https://mediq-backend.herokuapp.com/api/patients/who-am-i`,
+      const responseUsers = await axios.get(
+        `https://mediq-backend.herokuapp.com/api/patients/who-am-i`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
           },
-        });
+        }
+      );
 
       const dataUsers = await responseUsers.data;
-      console.log(dataUsers)
+      console.log(dataUsers);
 
-      setData(dataUsers)
+      setData(dataUsers);
     } catch (err) {
       setIsLoggedIn(false);
     }
-  }
+  };
 
   const onCreate = async (e) => {
     e.preventDefault();
@@ -66,8 +69,6 @@ export default function Janji() {
         examinationId: examinationIdField.current.value,
       };
 
-
-
       const createRequest = await axios.post(
         `https://mediq-backend.herokuapp.com/api/patients/booking`,
         userToCreatePayload,
@@ -77,16 +78,18 @@ export default function Janji() {
           },
         }
       );
-      console.log(createRequest)
+      console.log(createRequest);
+
+      const successResponse = createRequest.data.message;
+      setSuccessResponse({
+        isSuccess: true,
+        message: successResponse,
+      });
 
       const createResponse = createRequest;
-      console.log(createResponse)
+      console.log(createResponse);
 
-      console.log(createResponse.status)
-      if (createResponse.status) navigate("/");
-
-
-
+      console.log(createResponse.status);
     } catch (err) {
       const response = err.response.data;
       setErrorResponse({
@@ -98,13 +101,22 @@ export default function Janji() {
 
   useEffect(() => {
     getUsers();
-  }, [])
-
+  }, []);
 
   return isLoggedIn ? (
     <div>
       <HomeNavbar />
       <div className="container">
+        {successResponse.isSuccess && (
+          <Alert
+            variant="success"
+            className="mt-5"
+            onClose={() => setSuccessResponse(true)}
+            dismissible
+          >
+            {successResponse.message}
+          </Alert>
+        )}
         <div className="row judul">
           <img src="../logo.png" alt="" className="col-3 my-4 py-3" />
           <h2 className="text-left my-4 py-4 col-6">
@@ -166,24 +178,36 @@ export default function Janji() {
                   <Form.Label>BPJS / Non BPJS</Form.Label>
                   <select ref={examinationIdField} className="form-select">
                     <option hidden>Pilih Salah Satu</option>
-                    <option ref={examinationIdField} value="1">BPJS</option>
-                    <option ref={examinationIdField} value="2">Non-BPJS</option>
+                    <option ref={examinationIdField} value="1">
+                      BPJS
+                    </option>
+                    <option ref={examinationIdField} value="2">
+                      Non-BPJS
+                    </option>
                   </select>
                 </Form.Group>
                 {errorResponse.isError && (
                   <Alert variant="danger">{errorResponse.message}</Alert>
                 )}
-                <Button className="w-100 mt-3 mb-3 tombol" type="Buat Janji" style={colourButton}>
+                <Button
+                  className="w-100 mt-3 mb-3 tombol"
+                  type="Buat Janji"
+                  style={colourButton}
+                >
                   Buat Janji Kunjungan
                 </Button>
               </Form>
-
             </div>
           </div>
           <div className="col-6 carosel_gambar">
             <Carousel2 />
             <div className="mx-auto text-center">
-              <h3 className="my-4"><span className="font-weight-bold"> Butuh ke Dokter? </span> <span>pake <img src="../logo.png" width="80" alt="" /> aja </span></h3>
+              <h3 className="my-4">
+                <span className="font-weight-bold"> Butuh ke Dokter? </span>{" "}
+                <span>
+                  pake <img src="../logo.png" width="80" alt="" /> aja{" "}
+                </span>
+              </h3>
             </div>
           </div>
         </div>
@@ -197,6 +221,6 @@ export default function Janji() {
       </div>
     </div>
   ) : (
-    <Navigate to="/login" replace />);;
+    <Navigate to="/login" replace />
+  );
 }
-
