@@ -124,7 +124,7 @@ export default function Profile() {
                         </div>
 
                         <div className="text-profile-1">
-                            <h4>EditProfile</h4>
+                            <h5>Edit Profile</h5>
                         </div>
 
                         <div className="icon-2">
@@ -132,7 +132,7 @@ export default function Profile() {
                         </div>
 
                         <div className="text-profile-2">
-                            <h4>Logout</h4>
+                            <h5>Logout</h5>
                         </div>
 
                     </Col>
@@ -216,7 +216,7 @@ export default function Profile() {
                     </Col>
                 </Row>
                 <hr style={{ marginTop: '176px' }} />
-            <FooterHome />
+                <FooterHome />
             </Container>
         </div>
     ) : (
