@@ -5,8 +5,10 @@ import axios from "axios";
 import { HomeNavbar } from "./components/navbar/navbar"
 import { FooterHome } from "./components/footer/footer"
 import Carousel2 from "./components/carousel/Carousel2"
+import Carousel3 from "./components/carousel/Carousel3"
 // import { Form, FormGroup, Label, Input, Button } from "reactstrap";
 import { Form, Button, Alert, Row, Container, Col, } from "react-bootstrap";
+import logo from '../images/logo.svg';
 import "../css/style.css";
 
 
@@ -24,14 +26,36 @@ export default function Janji() {
   });
 
 
-
-  const colourButton = {
+  const styleButton = {
     backgroundColor: '#008864',
     borderRadius: '10px',
+    marginTop: '196px',
+    height: '48px',
   };
 
   const styleLabel = {
     borderRadius: '10px',
+    height: '48px',
+  };
+
+  const styleTitle = {
+    display: 'flex',
+    textAlign: 'left',
+    marginTop: '58px',
+    fontSize: '24px',
+    fontWeight: '500',
+  };
+
+  const formContainer = {
+    backgroundColor: '#F5F5F5',
+    padding: '50px',
+    borderRadius: '20px',
+    marginTop: '52px',
+  };
+
+  const carouselWrapper = {
+    padding: '98px',
+    
   };
 
   const getUsers = async () => {
@@ -105,14 +129,14 @@ export default function Janji() {
     <div>
       <HomeNavbar />
       <div className="container">
-        <div className="row judul">
-          <img src="../logo.png" alt="" className="col-3 my-4 py-3" />
-          <h2 className="text-left my-4 py-4 col-6">
+        <div style={styleTitle}>
+        <img alt="logo" src={logo} width='90' style={{ marginRight: '20px' }} />
+          <h2 className="mt-3">
             Pendaftaran Online Buat Janji
           </h2>
-        </div>
+        </div> 
         <div className="row mr-4">
-          <div className="col-6  container_janji">
+          <div className="col-lg-6">
             <div>
               {/* <Form>
                 <FormGroup>
@@ -143,6 +167,7 @@ export default function Janji() {
                   Buat Janji Kunjungan
                 </Button>
               </Form> */}
+              <div style={formContainer}>
               <Form onSubmit={onCreate}>
                 <Form.Group className="mb-3 formlogin">
                   <Form.Label>Nama Lengkap</Form.Label>
@@ -164,7 +189,7 @@ export default function Janji() {
                 </Form.Group>
                 <Form.Group className="mb-3">
                   <Form.Label>BPJS / Non BPJS</Form.Label>
-                  <select ref={examinationIdField} className="form-select">
+                  <select ref={examinationIdField} className="form-select" style={styleLabel}> 
                     <option hidden>Pilih Salah Satu</option>
                     <option ref={examinationIdField} value="1">BPJS</option>
                     <option ref={examinationIdField} value="2">Non-BPJS</option>
@@ -173,17 +198,16 @@ export default function Janji() {
                 {errorResponse.isError && (
                   <Alert variant="danger">{errorResponse.message}</Alert>
                 )}
-                <Button className="w-100 mt-3 mb-3 tombol" type="Buat Janji" style={colourButton}>
+                <Button className="w-100" type="Buat Janji" style={styleButton}>
                   Buat Janji Kunjungan
                 </Button>
               </Form>
-
+              </div>
             </div>
           </div>
-          <div className="col-6 carosel_gambar">
-            <Carousel2 />
-            <div className="mx-auto text-center">
-              <h3 className="my-4"><span className="font-weight-bold"> Butuh ke Dokter? </span> <span>pake <img src="../logo.png" width="80" alt="" /> aja </span></h3>
+          <div className="col-lg-6 carosel_gambar">
+            <div style={carouselWrapper}>
+              <Carousel3 />
             </div>
           </div>
         </div>
