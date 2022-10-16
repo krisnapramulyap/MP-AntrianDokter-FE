@@ -38,7 +38,7 @@ export default function Register() {
             };
 
             const registerRequest = await axios.post(
-                "http://localhost:3000/api/patients/register",
+                "https://mediq-backend.herokuapp.com/api/patients/register",
                 userToRegisterPayload
             );
             console.log(registerRequest)
@@ -76,10 +76,10 @@ export default function Register() {
         <Container fluid="true">
             <Row >
                 <Col>
-                <div className="regist-left">
-                <img src={PICT1} alt="MediQ" width="608px" height="611px" />
-                </div>
-                    
+                    <div className="regist-left">
+                        <img src={PICT1} alt="MediQ" width="608px" height="611px" />
+                    </div>
+
                 </Col>
                 <Col >
                     <div className="regist-right">
@@ -135,7 +135,7 @@ export default function Register() {
 
                             <Form.Group className="mb-3">
                                 <Form.Label>Jenis Kelamin</Form.Label>
-                                <select className="form-select">
+                                <select ref={genderField} className="form-select">
                                     <option hidden>Pilih Salah Satu</option>
                                     <option ref={genderField} value="Pria">Laki Laki</option>
                                     <option ref={genderField} value="Wanita">Perempuan</option>

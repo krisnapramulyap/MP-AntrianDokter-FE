@@ -18,7 +18,7 @@ export function HomeNavbar() {
   const getUsers = async () => {
     try {
       const token = localStorage.getItem("token");
-      const responseUsers = await axios.get(`http://localhost:3000/api/patients/who-am-i`,
+      const responseUsers = await axios.get(`https://mediq-backend.herokuapp.com/api/patients/who-am-i`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -52,7 +52,7 @@ export function HomeNavbar() {
 
         // 2. Check token validity from API
         const currentUserRequest = await axios.get(
-          "http://localhost:3000/api/patients/who-am-i",
+          "https://mediq-backend.herokuapp.com/api/patients/who-am-i",
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -61,7 +61,7 @@ export function HomeNavbar() {
         );
         console.log(currentUserRequest)
 
-        const currentUserResponse = currentUserRequest.data;
+        const currentUserResponse = currentUserRequest;
 
         console.log(currentUserResponse.status)
 
@@ -75,8 +75,6 @@ export function HomeNavbar() {
           setUser(currentUserResponse.data);
         }
 
-        console.log(addUser)
-        console.log(setUser)
       } catch (err) {
         setIsLoggedIn(false);
       }
@@ -89,7 +87,7 @@ export function HomeNavbar() {
   return (
     <Navbar collapseOnSelect expand="lg" bg="green" variant="dark">
       <Container>
-        <Navbar.Brand href="#home">
+        <Navbar.Brand href="/">
           <img
             alt=""
             src="/MediQ.png"
@@ -102,8 +100,8 @@ export function HomeNavbar() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto ps-5">
-            <Nav.Link href="#Beranda">Beranda</Nav.Link>
-            <Nav.Link className="ps-5" href="#BuatJanji">Buat Janji</Nav.Link>
+            <Nav.Link href="/">Beranda</Nav.Link>
+            <Nav.Link className="ps-5" href="/buatjanji">Buat Janji</Nav.Link>
             <Nav.Link className="ps-5" href="#TentangKami">Cek Antrian</Nav.Link>
           </Nav>
           {!isLoggedIn ? (
@@ -112,7 +110,8 @@ export function HomeNavbar() {
             </Nav>
           ) : (
             <Nav>
-              <Nav.Link onClick={logout} >Logout</Nav.Link>
+              <Nav.Link className="ps-5" href="/profile">Profile</Nav.Link>
+              <Nav.Link className="ps-5" onClick={logout} >Logout</Nav.Link>
             </Nav>
           )}
         </Navbar.Collapse>

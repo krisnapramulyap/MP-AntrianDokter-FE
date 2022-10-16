@@ -140,3 +140,91 @@
 .bg-green {
     background-color: seagreen;
 }
+
+/* profile */
+
+.profile-right {
+    margin-top: 50px;
+    margin-bottom: 892px;
+    margin-left: 422px;
+    margin-right: 146px;
+    width: 872px;
+    height: 572px;
+    left: 422px;
+    top: 199px;
+    background: #EFEFEF;
+    border-radius: 20px;
+}
+
+.profile-left {
+    position: absolute;
+    width: 79px;
+    height: 38px;
+    margin-left: 96px;
+    margin-top: 110px;
+    
+}
+
+.text-profile {
+    /* position: absolute; */
+    text-align: center;
+    width: 75px;
+    height: 34px;
+    margin-left: 195px;
+    margin-top: 114px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    color: #000000;
+
+    
+
+}
+
+.icon-1 {
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    margin-left: 96px;
+    margin-top: 50px;
+    margin-bottom: 892px;
+    margin-right: 146px;
+}
+
+.text-profile-1 {
+    position: absolute;
+    text-align: center;
+    width: 106px;
+    height: 28px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    margin-left: 195px;
+    margin-top: 54px;
+    color: #008864;
+
+
+}
+
+.icon-2 {
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    margin-left: 96px;
+    margin-top: 105px;
+    margin-bottom: 892px;
+    margin-right: 146px;
+}
+
+.text-profile-2 {
+    position: absolute;
+    text-align: center;
+    width: 68px;
+    height: 28px;
+    margin-left: 195px;
+    margin-top: 105px;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    color: #333;
+}
