@@ -53,7 +53,7 @@ export default function Janji() {
 
   const carouselWrapper = {
     padding: '98px',
-    
+  };
 
   const [successResponse, setSuccessResponse] = useState({
     isSuccess: false,
@@ -65,10 +65,7 @@ export default function Janji() {
     borderRadius: "10px",
   };
 
-  const styleLabel = {
-    borderRadius: "10px",
 
-  };
 
   const getUsers = async () => {
     try {
@@ -141,9 +138,6 @@ export default function Janji() {
     <div>
       <HomeNavbar />
       <div className="container">
-        <div style={styleTitle}>
-        <img alt="logo" src={logo} width='90' style={{ marginRight: '20px' }} />
-          <h2 className="mt-3">
         {successResponse.isSuccess && (
           <Alert
             variant="success"
@@ -154,8 +148,8 @@ export default function Janji() {
             {successResponse.message}
           </Alert>
         )}
-        <div className="row judul">
-          <img src="../logo.png" alt="" className="col-3 my-4 py-3" />
+        <div style={styleTitle}>
+        <img alt="logo" src={logo} width='90' style={{ marginRight: '20px' }} />
           <h2 className="text-left my-4 py-4 col-6">
             Pendaftaran Online Buat Janji
           </h2>
