@@ -117,12 +117,6 @@ export default function Janji() {
       const createResponse = createRequest;
       console.log(createResponse)
 
-      const successResponse = createRequest.data.message;
-      setSuccessResponse({
-        isSuccess: true,
-        message: successResponse,
-      });
-
       console.log(createResponse.status)
       if (createResponse.status) navigate("/buatjanji");
 
