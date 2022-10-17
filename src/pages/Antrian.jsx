@@ -196,7 +196,7 @@ export default function Antrian() {
                                         </Table>
                                         <hr />
                                     </div>
-                                ) : ("")).reverse()}
+                                ) : (""))}
                         </Modal.Body>
                     ) : ("")}
                     <Modal.Footer style={{ border: 'none' }}>
