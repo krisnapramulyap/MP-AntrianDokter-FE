@@ -25,6 +25,12 @@ export default function Janji() {
     message: "",
   });
 
+  const [successResponse, setSuccessResponse] = useState({
+    isSuccess: false,
+    message: "",
+  });
+
+
 
   const styleButton = {
     backgroundColor: '#008864',
@@ -103,11 +109,17 @@ export default function Janji() {
       );
       console.log(createRequest)
 
+      const successResponse = createRequest.data.message;
+      setSuccessResponse({
+        isSuccess: true,
+        message: successResponse,
+      });
+
       const createResponse = createRequest;
       console.log(createResponse)
 
       console.log(createResponse.status)
-      if (createResponse.status) navigate("/");
+      if (createResponse.status) navigate("/buatjanji");
 
 
 
@@ -135,38 +147,19 @@ export default function Janji() {
             Pendaftaran Online Buat Janji
           </h2>
         </div>
+        {successResponse.isSuccess && (
+          <Alert
+            variant="success"
+            className="mt-5"
+            onClose={() => setSuccessResponse(true)}
+            dismissible
+          >
+            {successResponse.message}
+          </Alert>
+        )}
         <div className="row mr-4">
           <div className="col-lg-6">
             <div>
-              {/* <Form>
-                <FormGroup>
-                  <Label for="exampleEmail"> Nama Pasien </Label>
-                  <Input
-                    id="exampleEmail"
-                    name="email"
-                    placeholder="Masukan Nama Lengkap Pasien"
-                    type="email"
-                  />
-                </FormGroup>
-                {""}
-                <FormGroup>
-                  <Label for="examplePassword"> NIK</Label>
-                  <Input
-                    id="examplePassword"
-                    name="password"
-                    placeholder="Masukan NIK"
-                    type="password"
-                  />
-                </FormGroup>{" "}
-                <Label for="examplePassword"> BPJS / Non BPJS </Label>
-                <Input bsSize="md" className="mb-3" type="select">
-                  <option>BPJS</option>
-                  <option>Non BPJS</option>
-                </Input>
-                <Button className="mt-3 mb-3 tombol">
-                  Buat Janji Kunjungan
-                </Button>
-              </Form> */}
               <div style={formContainer}>
                 <Form onSubmit={onCreate}>
                   <Form.Group className="mb-3 formlogin">
