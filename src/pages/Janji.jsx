@@ -60,10 +60,6 @@ export default function Janji() {
     message: "",
   });
 
-  const colourButton = {
-    backgroundColor: "#008864",
-    borderRadius: "10px",
-  };
 
 
 
@@ -227,23 +223,22 @@ export default function Janji() {
               </Form>
               </div>
             </div>
-          </div>
-          <div className="col-lg-6 carosel_gambar">
-            <div style={carouselWrapper}>
-              <Carousel3 />
+            <div className="col-lg-6 carosel_gambar">
+              <div style={carouselWrapper}>
+                <Carousel3 />
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <br />
-      <br />
-      <br />
-      <hr width="1300" className="mx-auto" />
-      <div className="py-4">
-        <FooterHome />
+        <br />
+        <br />
+        <br />
+        <hr width="1300" className="mx-auto" />
+        <div className="py-4">
+          <FooterHome />
+        </div>
       </div>
     </div>
   ) : (
-    <Navigate to="/login" replace />
-  );
+    <Navigate to="/login" replace />);;
 }
