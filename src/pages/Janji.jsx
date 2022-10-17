@@ -30,8 +30,6 @@ export default function Janji() {
     message: "",
   });
 
-
-
   const styleButton = {
     backgroundColor: '#008864',
     borderRadius: '10px',
@@ -84,7 +82,7 @@ export default function Janji() {
     }
   }
 
-  const onCreate = async (e) => {
+  const onCreate = async (e, isDone) => {
     e.preventDefault();
 
     try {
@@ -94,6 +92,7 @@ export default function Janji() {
         name: patientNameField.current.value,
         patientNIK: patientNIKField.current.value,
         examinationId: examinationIdField.current.value,
+        isDone,
       };
 
 
@@ -117,6 +116,12 @@ export default function Janji() {
 
       const createResponse = createRequest;
       console.log(createResponse)
+
+      const successResponse = createRequest.data.message;
+      setSuccessResponse({
+        isSuccess: true,
+        message: successResponse,
+      });
 
       console.log(createResponse.status)
       if (createResponse.status) navigate("/buatjanji");
@@ -191,7 +196,7 @@ export default function Janji() {
                   {errorResponse.isError && (
                     <Alert variant="danger">{errorResponse.message}</Alert>
                   )}
-                  <Button className="w-100" type="Buat Janji" style={styleButton}>
+                  <Button onClick={(e) => onCreate(e, false)} className="w-100" type="Buat Janji" style={styleButton}>
                     Buat Janji Kunjungan
                   </Button>
                 </Form>

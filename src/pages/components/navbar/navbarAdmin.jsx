@@ -18,7 +18,7 @@ export function AdminNavbar() {
     const getUsers = async () => {
         try {
             const token = localStorage.getItem("token");
-            const responseUsers = await axios.get(`https://mediq-backend.herokuapp.com/api/patients/who-am-i`,
+            const responseUsers = await axios.get(`https://mediq-backend.herokuapp.com/api/admins/who-am-i`,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`,
@@ -52,7 +52,7 @@ export function AdminNavbar() {
 
                 // 2. Check token validity from API
                 const currentUserRequest = await axios.get(
-                    "https://mediq-backend.herokuapp.com/api/patients/who-am-i",
+                    "https://mediq-backend.herokuapp.com/api/admins/who-am-i",
                     {
                         headers: {
                             Authorization: `Bearer ${token}`,

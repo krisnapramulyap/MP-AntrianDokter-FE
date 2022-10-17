@@ -13,7 +13,7 @@ export function HomeNavbar() {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [user, setUser] = useState({});
 
-
+  console.log(user)
 
   const getUsers = async () => {
     try {
