@@ -1,6 +1,6 @@
 import React from "react";
 import { useRef, useEffect, useState } from "react";
-import { Link, useNavigate, Navigate } from "react-router-dom";
+import { Link, useNavigate, Navigate, } from "react-router-dom";
 import axios from "axios";
 import { HomeNavbar } from "./components/navbar/navbar"
 import { FooterHome } from "./components/footer/footer"
@@ -10,6 +10,7 @@ import Carousel3 from "./components/carousel/Carousel3"
 import { Form, Button, Alert, Row, Container, Col, } from "react-bootstrap";
 import logo from '../images/logo.svg';
 import "../css/style.css";
+
 
 export default function Janji() {
   const navigate = useNavigate();
@@ -23,6 +24,7 @@ export default function Janji() {
     isError: false,
     message: "",
   });
+
 
   const styleButton = {
     backgroundColor: '#008864',
@@ -53,36 +55,28 @@ export default function Janji() {
 
   const carouselWrapper = {
     padding: '98px',
+
   };
 
-  const [successResponse, setSuccessResponse] = useState({
-    isSuccess: false,
-    message: "",
-  });
-
-
-
-
   const getUsers = async () => {
+
     try {
       const token = localStorage.getItem("token");
-      const responseUsers = await axios.get(
-        `https://mediq-backend.herokuapp.com/api/patients/who-am-i`,
+      const responseUsers = await axios.get(`https://mediq-backend.herokuapp.com/api/patients/who-am-i`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
           },
-        }
-      );
+        });
 
       const dataUsers = await responseUsers.data;
-      console.log(dataUsers);
+      console.log(dataUsers)
 
-      setData(dataUsers);
+      setData(dataUsers)
     } catch (err) {
       setIsLoggedIn(false);
     }
-  };
+  }
 
   const onCreate = async (e) => {
     e.preventDefault();
@@ -96,6 +90,8 @@ export default function Janji() {
         examinationId: examinationIdField.current.value,
       };
 
+
+
       const createRequest = await axios.post(
         `https://mediq-backend.herokuapp.com/api/patients/booking`,
         userToCreatePayload,
@@ -105,18 +101,16 @@ export default function Janji() {
           },
         }
       );
-      console.log(createRequest);
-
-      const successResponse = createRequest.data.message;
-      setSuccessResponse({
-        isSuccess: true,
-        message: successResponse,
-      });
+      console.log(createRequest)
 
       const createResponse = createRequest;
-      console.log(createResponse);
+      console.log(createResponse)
 
-      console.log(createResponse.status);
+      console.log(createResponse.status)
+      if (createResponse.status) navigate("/");
+
+
+
     } catch (err) {
       const response = err.response.data;
       setErrorResponse({
@@ -128,28 +122,19 @@ export default function Janji() {
 
   useEffect(() => {
     getUsers();
-  }, []);
+  }, [])
+
 
   return isLoggedIn ? (
     <div>
       <HomeNavbar />
       <div className="container">
-        {successResponse.isSuccess && (
-          <Alert
-            variant="success"
-            className="mt-5"
-            onClose={() => setSuccessResponse(true)}
-            dismissible
-          >
-            {successResponse.message}
-          </Alert>
-        )}
         <div style={styleTitle}>
-        <img alt="logo" src={logo} width='90' style={{ marginRight: '20px' }} />
-          <h2 className="text-left my-4 py-4 col-6">
+          <img alt="logo" src={logo} width='90' style={{ marginRight: '20px' }} />
+          <h2 className="mt-3">
             Pendaftaran Online Buat Janji
           </h2>
-        </div> 
+        </div>
         <div className="row mr-4">
           <div className="col-lg-6">
             <div>
@@ -183,62 +168,59 @@ export default function Janji() {
                 </Button>
               </Form> */}
               <div style={formContainer}>
-              <Form onSubmit={onCreate}>
-                <Form.Group className="mb-3 formlogin">
-                  <Form.Label>Nama Lengkap</Form.Label>
-                  <Form.Control
-                    type="text"
-                    ref={patientNameField}
-                    placeholder="Masukkan Nama Lengkap"
-                    style={styleLabel}
-                  />
-                </Form.Group>
-                <Form.Group className="mb-3">
-                  <Form.Label>NIK</Form.Label>
-                  <Form.Control
-                    type="text"
-                    ref={patientNIKField}
-                    placeholder="Masukkan Nomor NIK"
-                    style={styleLabel}
-                  />
-                </Form.Group>
-                <Form.Group className="mb-3">
-                  <Form.Label>BPJS / Non BPJS</Form.Label>
-                  <select ref={examinationIdField} className="form-select" style={styleLabel}> 
-                    <option hidden>Pilih Salah Satu</option>
-                    <option ref={examinationIdField} value="1">
-                      BPJS
-                    </option>
-                    <option ref={examinationIdField} value="2">
-                      Non-BPJS
-                    </option>
-                  </select>
-                </Form.Group>
-                {errorResponse.isError && (
-                  <Alert variant="danger">{errorResponse.message}</Alert>
-                )}
-                <Button className="w-100" type="Buat Janji" style={styleButton}>
-                  Buat Janji Kunjungan
-                </Button>
-              </Form>
-              </div>
-            </div>
-            <div className="col-lg-6 carosel_gambar">
-              <div style={carouselWrapper}>
-                <Carousel3 />
+                <Form onSubmit={onCreate}>
+                  <Form.Group className="mb-3 formlogin">
+                    <Form.Label>Nama Lengkap</Form.Label>
+                    <Form.Control
+                      type="text"
+                      ref={patientNameField}
+                      placeholder="Masukkan Nama Lengkap"
+                      style={styleLabel}
+                    />
+                  </Form.Group>
+                  <Form.Group className="mb-3">
+                    <Form.Label>NIK</Form.Label>
+                    <Form.Control
+                      type="text"
+                      ref={patientNIKField}
+                      placeholder="Masukkan Nomor NIK"
+                      style={styleLabel}
+                    />
+                  </Form.Group>
+                  <Form.Group className="mb-3">
+                    <Form.Label>BPJS / Non BPJS</Form.Label>
+                    <select ref={examinationIdField} className="form-select" style={styleLabel}>
+                      <option hidden>Pilih Salah Satu</option>
+                      <option ref={examinationIdField} value="1">BPJS</option>
+                      <option ref={examinationIdField} value="2">Non-BPJS</option>
+                    </select>
+                  </Form.Group>
+                  {errorResponse.isError && (
+                    <Alert variant="danger">{errorResponse.message}</Alert>
+                  )}
+                  <Button className="w-100" type="Buat Janji" style={styleButton}>
+                    Buat Janji Kunjungan
+                  </Button>
+                </Form>
               </div>
             </div>
           </div>
+          <div className="col-lg-6 carosel_gambar">
+            <div style={carouselWrapper}>
+              <Carousel3 />
+            </div>
+          </div>
         </div>
-        <br />
-        <br />
-        <br />
-        <hr width="1300" className="mx-auto" />
-        <div className="py-4">
-          <FooterHome />
-        </div>
+      </div>
+      <br />
+      <br />
+      <br />
+      <hr width="1300" className="mx-auto" />
+      <div className="py-4">
+        <FooterHome />
       </div>
     </div>
   ) : (
     <Navigate to="/login" replace />);;
 }
+
