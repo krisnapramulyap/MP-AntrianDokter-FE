@@ -25,6 +25,11 @@ export default function Janji() {
     message: "",
   });
 
+  const [successResponse, setSuccessResponse] = useState({
+    isSuccess: false,
+    message: "",
+  });
+
 
   const styleButton = {
     backgroundColor: '#008864',
@@ -107,8 +112,14 @@ export default function Janji() {
       const createResponse = createRequest;
       console.log(createResponse)
 
+      const successResponse = createRequest.data.message;
+      setSuccessResponse({
+        isSuccess: true,
+        message: successResponse,
+      });
+
       console.log(createResponse.status)
-      if (createResponse.status) navigate("/");
+      if (createResponse.status) navigate("/buatjanji");
 
 
 
@@ -136,6 +147,16 @@ export default function Janji() {
             Pendaftaran Online Buat Janji
           </h2>
         </div>
+        {successResponse.isSuccess && (
+          <Alert
+            variant="success"
+            className="mt-5"
+            onClose={() => setSuccessResponse(true)}
+            dismissible
+          >
+            {successResponse.message}
+          </Alert>
+        )}
         <div className="row mr-4">
           <div className="col-lg-6">
             <div>
