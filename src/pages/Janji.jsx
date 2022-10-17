@@ -30,7 +30,6 @@ export default function Janji() {
     message: "",
   });
 
-
   const styleButton = {
     backgroundColor: '#008864',
     borderRadius: '10px',
@@ -108,6 +107,12 @@ export default function Janji() {
         }
       );
       console.log(createRequest)
+
+      const successResponse = createRequest.data.message;
+      setSuccessResponse({
+        isSuccess: true,
+        message: successResponse,
+      });
 
       const createResponse = createRequest;
       console.log(createResponse)
