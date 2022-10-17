@@ -1,14 +1,109 @@
 import Table from 'react-bootstrap/Table';
 import { useRef, useEffect, useState } from "react";
-import { Link, useNavigate, Navigate, } from "react-router-dom";
-import { Button, Alert, Row, Container, Col, } from "react-bootstrap";
+import { Link, useNavigate, useParams, Navigate, } from "react-router-dom";
+import { Button, } from "react-bootstrap";
 import { AdminNavbar } from "./components/navbar/navbarAdmin"
 import { FooterHome } from "./components/footer/footer"
+import axios from "axios";
 import "../css/style.css"
 
 
-function BerandaAdmin() {
-  return (
+export default function BerandaAdmin() {
+
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const [book, setBook] = useState([]);
+  const [data, setData] = useState([]);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [errorResponse, setErrorResponse] = useState({
+    isError: false,
+    message: "",
+  });
+
+  console.log(data);
+  console.log(book[0]);
+
+  const getAdmin = async () => {
+
+    try {
+      const token = localStorage.getItem("token");
+      const responseUsers = await axios.get(`https://mediq-backend.herokuapp.com/api/admins/who-am-i`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+      const dataUsers = await responseUsers.data;
+      console.log(dataUsers)
+
+      setData(dataUsers)
+
+
+    } catch (err) {
+      setIsLoggedIn(false);
+    };
+  }
+
+  const onUpdate = async (e, isDone) => {
+    e.preventDefault();
+
+    try {
+      const token = localStorage.getItem("token");
+      const queueToUpdatePayload = {
+        isDone: isDone,
+      };
+
+      const updateRequest = await axios.put(
+        `https://mediq-backend.herokuapp.com/api/admins/update-booking/${id}`,
+        queueToUpdatePayload,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      console.log(updateRequest)
+
+      const updateResponse = updateRequest.data;
+      console.log(updateResponse)
+
+      console.log(updateResponse.status)
+      if (updateResponse.status) navigate("/berandaadmin");
+
+
+
+    } catch (err) {
+      const response = err.response.data;
+      setErrorResponse({
+        isError: true,
+        message: response.message,
+      });
+    }
+  };
+
+  useEffect(() => {
+    const bookData = async () => {
+      const token = localStorage.getItem("token");
+      const response = await axios.get(`https://mediq-backend.herokuapp.com/api/bookings`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      console.log(response);
+
+      const data = await response.data.data.data;
+      setBook(data);
+      console.log(data)
+    };
+
+    onUpdate();
+    getAdmin();
+    bookData();
+  }, [book.id]);
+
+
+  return isLoggedIn ? (
     <div>
       <AdminNavbar />
       <div className="Container">
@@ -29,77 +124,27 @@ function BerandaAdmin() {
               <th className='selesai'>Selesai</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td style={{ textAlign: 'center' }}>1305</td>
-              <td>Devara Gandany</td>
-              <td>Umum</td>
-              <td>Dr.</td>
-              <td style={{ textAlign: 'center' }}>23/09/2022</td>
-              <td>Keluhan</td>
-              <td><Button variant="link">Selesai</Button></td>
-            </tr>
-            <tr>
-              <td style={{ textAlign: 'center' }}>1305</td>
-              <td>Devara Gandany</td>
-              <td>Umum</td>
-              <td>Dr.</td>
-              <td style={{ textAlign: 'center' }}>23/09/2022</td>
-              <td>Keluhan</td>
-              <td><Button variant="link">Selesai</Button></td>
-            </tr>
-            <tr>
-              <td style={{ textAlign: 'center' }}>1305</td>
-              <td>Devara Gandany</td>
-              <td>Umum</td>
-              <td>Dr.</td>
-              <td style={{ textAlign: 'center' }}>23/09/2022</td>
-              <td>Keluhan</td>
-              <td><Button variant="link">Selesai</Button></td>
-            </tr>
-            <tr>
-              <td style={{ textAlign: 'center' }}>1305</td>
-              <td>Devara Gandany</td>
-              <td>Umum</td>
-              <td>Dr.</td>
-              <td style={{ textAlign: 'center' }}>23/09/2022</td>
-              <td>Keluhan</td>
-              <td><Button variant="link">Selesai</Button></td>
-            </tr>
-            <tr>
-              <td style={{ textAlign: 'center' }}>1305</td>
-              <td>Devara Gandany</td>
-              <td>Umum</td>
-              <td>Dr.</td>
-              <td style={{ textAlign: 'center' }}>23/09/2022</td>
-              <td>Keluhan</td>
-              <td><Button variant="link">Selesai</Button></td>
-            </tr>
-            <tr>
-              <td style={{ textAlign: 'center' }}>1305</td>
-              <td>Devara Gandany</td>
-              <td>Umum</td>
-              <td>Dr.</td>
-              <td style={{ textAlign: 'center' }}>23/09/2022</td>
-              <td>Keluhan</td>
-              <td><Button variant="link">Selesai</Button></td>
-            </tr>
-            <tr>
-              <td style={{ textAlign: 'center' }}>1305</td>
-              <td>Devara Gandany</td>
-              <td>Umum</td>
-              <td>Dr.</td>
-              <td style={{ textAlign: 'center' }}>23/09/2022</td>
-              <td>Keluhan</td>
-              <td><Button variant="link">Selesai</Button></td>
-            </tr>
-          </tbody>
+          {book ? (
+            <tbody>
+              {book.map((book) =>
+                book.isDone === false ? (
+                  <tr key={book.id}>
+                    <td style={{ textAlign: 'center' }}>{book.queueNumber}</td>
+                    <td>{book.patientName}</td>
+                    <td>Umum</td>
+                    <td>Dr.</td>
+                    <td style={{ textAlign: 'center' }}>{book.dateOfVisit}</td>
+                    <td>Keluhan</td>
+                    <td><Button onClick={(e) => onUpdate(e, true)} variant="link">Selesai</Button></td>
+                  </tr>
+                ) : (""))}
+            </tbody>
+          ) : ("")}
         </Table>
       </div>
       <hr style={{ marginTop: '895px' }} />
       <FooterHome />
     </div>
-  );
+  ) : (
+    <Navigate to="/admin" replace />);;
 }
-
-export default BerandaAdmin;

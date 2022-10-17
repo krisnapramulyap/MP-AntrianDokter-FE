@@ -78,7 +78,7 @@ export default function Janji() {
     }
   }
 
-  const onCreate = async (e) => {
+  const onCreate = async (e, isDone) => {
     e.preventDefault();
 
     try {
@@ -88,6 +88,7 @@ export default function Janji() {
         name: patientNameField.current.value,
         patientNIK: patientNIKField.current.value,
         examinationId: examinationIdField.current.value,
+        isDone,
       };
 
 
@@ -138,35 +139,6 @@ export default function Janji() {
         <div className="row mr-4">
           <div className="col-lg-6">
             <div>
-              {/* <Form>
-                <FormGroup>
-                  <Label for="exampleEmail"> Nama Pasien </Label>
-                  <Input
-                    id="exampleEmail"
-                    name="email"
-                    placeholder="Masukan Nama Lengkap Pasien"
-                    type="email"
-                  />
-                </FormGroup>
-                {""}
-                <FormGroup>
-                  <Label for="examplePassword"> NIK</Label>
-                  <Input
-                    id="examplePassword"
-                    name="password"
-                    placeholder="Masukan NIK"
-                    type="password"
-                  />
-                </FormGroup>{" "}
-                <Label for="examplePassword"> BPJS / Non BPJS </Label>
-                <Input bsSize="md" className="mb-3" type="select">
-                  <option>BPJS</option>
-                  <option>Non BPJS</option>
-                </Input>
-                <Button className="mt-3 mb-3 tombol">
-                  Buat Janji Kunjungan
-                </Button>
-              </Form> */}
               <div style={formContainer}>
                 <Form onSubmit={onCreate}>
                   <Form.Group className="mb-3 formlogin">
@@ -198,7 +170,7 @@ export default function Janji() {
                   {errorResponse.isError && (
                     <Alert variant="danger">{errorResponse.message}</Alert>
                   )}
-                  <Button className="w-100" type="Buat Janji" style={styleButton}>
+                  <Button onClick={(e) => onCreate(e, false)} className="w-100" type="Buat Janji" style={styleButton}>
                     Buat Janji Kunjungan
                   </Button>
                 </Form>
