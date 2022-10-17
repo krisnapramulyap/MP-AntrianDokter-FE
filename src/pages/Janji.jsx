@@ -53,9 +53,7 @@ export default function Janji() {
 
   const carouselWrapper = {
     padding: '98px',
-
   };
-
 
   const [successResponse, setSuccessResponse] = useState({
     isSuccess: false,
@@ -136,68 +134,93 @@ export default function Janji() {
     <div>
       <HomeNavbar />
       <div className="container">
-        <h2 className="mt-3">
-          {successResponse.isSuccess && (
-            <Alert
-              variant="success"
-              className="mt-5"
-              onClose={() => setSuccessResponse(true)}
-              dismissible
-            >
-              {successResponse.message}
-            </Alert>
-          )}
-        </h2>
+        {successResponse.isSuccess && (
+          <Alert
+            variant="success"
+            className="mt-5"
+            onClose={() => setSuccessResponse(true)}
+            dismissible
+          >
+            {successResponse.message}
+          </Alert>
+        )}
         <div style={styleTitle}>
-          {/* <img alt="logo" src={logo} width='90' style={{ marginRight: '20px' }} /> */}
-          <div style={styleTitle}>
-            {/* <h2 className="text-left my-4 py-4 col-6">
-              Pendaftaran Online Buat Janji
-            </h2> */}
-          </div>
-          <div className="row mr-4">
-            <div className="col-lg-6">
-              <div>
-                <div style={formContainer}>
-                  <Form onSubmit={onCreate}>
-                    <Form.Group className="mb-3 formlogin">
-                      <Form.Label>Nama Lengkap</Form.Label>
-                      <Form.Control
-                        type="text"
-                        ref={patientNameField}
-                        placeholder="Masukkan Nama Lengkap"
-                        style={styleLabel}
-                      />
-                    </Form.Group>
-                    <Form.Group className="mb-3">
-                      <Form.Label>NIK</Form.Label>
-                      <Form.Control
-                        type="text"
-                        ref={patientNIKField}
-                        placeholder="Masukkan Nomor NIK"
-                        style={styleLabel}
-                      />
-                    </Form.Group>
-                    <Form.Group className="mb-3">
-                      <Form.Label>BPJS / Non BPJS</Form.Label>
-                      <select ref={examinationIdField} className="form-select" style={styleLabel}>
-                        <option hidden>Pilih Salah Satu</option>
-                        <option ref={examinationIdField} value="1">
-                          BPJS
-                        </option>
-                        <option ref={examinationIdField} value="2">
-                          Non-BPJS
-                        </option>
-                      </select>
-                    </Form.Group>
-                    {errorResponse.isError && (
-                      <Alert variant="danger">{errorResponse.message}</Alert>
-                    )}
-                    <Button className="w-100" type="Buat Janji" style={styleButton}>
-                      Buat Janji Kunjungan
-                    </Button>
-                  </Form>
-                </div>
+        <img alt="logo" src={logo} width='90' style={{ marginRight: '20px' }} />
+          <h2 className="text-left my-4 py-4 col-6">
+            Pendaftaran Online Buat Janji
+          </h2>
+        </div> 
+        <div className="row mr-4">
+          <div className="col-lg-6">
+            <div>
+              {/* <Form>
+                <FormGroup>
+                  <Label for="exampleEmail"> Nama Pasien </Label>
+                  <Input
+                    id="exampleEmail"
+                    name="email"
+                    placeholder="Masukan Nama Lengkap Pasien"
+                    type="email"
+                  />
+                </FormGroup>
+                {""}
+                <FormGroup>
+                  <Label for="examplePassword"> NIK</Label>
+                  <Input
+                    id="examplePassword"
+                    name="password"
+                    placeholder="Masukan NIK"
+                    type="password"
+                  />
+                </FormGroup>{" "}
+                <Label for="examplePassword"> BPJS / Non BPJS </Label>
+                <Input bsSize="md" className="mb-3" type="select">
+                  <option>BPJS</option>
+                  <option>Non BPJS</option>
+                </Input>
+                <Button className="mt-3 mb-3 tombol">
+                  Buat Janji Kunjungan
+                </Button>
+              </Form> */}
+              <div style={formContainer}>
+              <Form onSubmit={onCreate}>
+                <Form.Group className="mb-3 formlogin">
+                  <Form.Label>Nama Lengkap</Form.Label>
+                  <Form.Control
+                    type="text"
+                    ref={patientNameField}
+                    placeholder="Masukkan Nama Lengkap"
+                    style={styleLabel}
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3">
+                  <Form.Label>NIK</Form.Label>
+                  <Form.Control
+                    type="text"
+                    ref={patientNIKField}
+                    placeholder="Masukkan Nomor NIK"
+                    style={styleLabel}
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3">
+                  <Form.Label>BPJS / Non BPJS</Form.Label>
+                  <select ref={examinationIdField} className="form-select" style={styleLabel}> 
+                    <option hidden>Pilih Salah Satu</option>
+                    <option ref={examinationIdField} value="1">
+                      BPJS
+                    </option>
+                    <option ref={examinationIdField} value="2">
+                      Non-BPJS
+                    </option>
+                  </select>
+                </Form.Group>
+                {errorResponse.isError && (
+                  <Alert variant="danger">{errorResponse.message}</Alert>
+                )}
+                <Button className="w-100" type="Buat Janji" style={styleButton}>
+                  Buat Janji Kunjungan
+                </Button>
+              </Form>
               </div>
             </div>
             <div className="col-lg-6 carosel_gambar">
