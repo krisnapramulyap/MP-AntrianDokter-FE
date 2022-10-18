@@ -117,8 +117,6 @@ export default function BerandaAdmin() {
             <tr className='tabelcolour'>
               <th className='antri'>No.Antrian</th>
               <th className='pasien'>Nama Pasien</th>
-              <th className='poli'>Poli</th>
-              <th className='dokter'>Nama Dokter</th>
               <th className='tgl'>Tgl Kunjungan</th>
               <th className='ket'>Keterangan</th>
               <th className='selesai'>Selesai</th>
@@ -131,8 +129,6 @@ export default function BerandaAdmin() {
                   <tr key={book.id}>
                     <td style={{ textAlign: 'center' }}>{book.queueNumber}</td>
                     <td>{book.patientName}</td>
-                    <td>Umum</td>
-                    <td>Dr.</td>
                     <td style={{ textAlign: 'center' }}>{book.dateOfVisit}</td>
                     <td>Keluhan</td>
                     <td><Button onClick={(e) => onUpdate(e, true)} variant="link">Selesai</Button></td>
@@ -142,7 +138,7 @@ export default function BerandaAdmin() {
           ) : ("")}
         </Table>
       </div>
-      <hr style={{ marginTop: '895px' }} />
+      <hr style={{ marginTop: '1700px' }} />
       <FooterHome />
     </div>
   ) : (
