@@ -13,6 +13,7 @@ export default function Antrian() {
     const [bookUser, setBookUser] = useState([]);
     const [book, setBook] = useState([]);
     const [data, setData] = useState({});
+    const [queue, setQueue] = useState([]);
     const [isLoggedIn, setIsLoggedIn] = useState(true);
 
     console.log(bookUser)
@@ -103,9 +104,6 @@ export default function Antrian() {
         marginBottom: '23px',
     }
 
-
-
-
     useEffect(() => {
         const getUsers = async () => {
 
@@ -137,17 +135,30 @@ export default function Antrian() {
                     Authorization: `Bearer ${token}`,
                 },
             });
-            console.log(response);
+            console.log(response.data.data);
 
             const data = await response.data.data.data;
             setBook(data);
             console.log(data)
         };
 
+        const queueData = async () => {
+            const token = localStorage.getItem("token");
+            const currentQueue = await axios.get('https://mediq-backend.herokuapp.com/api/current-queues', {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+            console.log(currentQueue.data.result[0]);
+            const queues = currentQueue.data.result[0]
+
+            setQueue(queues)
+        }
+
+        queueData();
         bookData();
         getUsers();
     }, [id]);
-
 
 
     const [show, setShow] = useState(false);
@@ -167,7 +178,6 @@ export default function Antrian() {
                 >
                     {book ? (
                         <Modal.Body style={modalBody}>
-
                             {book.map((book) =>
                                 data.id === book.patientId && book.isDone === false ? (
                                     <div>
@@ -211,16 +221,20 @@ export default function Antrian() {
                     <Row className="justify-content-md-center">
                         <Col md="auto" style={{ textAlign: 'center' }}>
                             <Card style={cardStyle} >
-                                <Row>
-                                    <Col xs={12} md={6}>
-                                        <Card.Text style={cardText}>Antrian Saat Ini</Card.Text>
-                                        <Card.Title style={cardTitlePrimary} >1305</Card.Title>
-                                    </Col>
-                                    <Col xs={12} md={6}>
-                                        <Card.Text style={cardText}>Total Antrian</Card.Text>
-                                        <Card.Title style={cardTitle}>1380</Card.Title>
-                                    </Col>
-                                </Row>
+                                <>
+                                    <Row>
+                                        <Col xs={12} md={6}>
+                                            <Card.Text style={cardText}>Antrian Saat Ini</Card.Text>
+                                            <Card.Title style={cardTitlePrimary} >{queue.queue}</Card.Title>
+                                        </Col>
+                                        <Col xs={12} md={6}>
+                                            <Card.Text style={cardText}>Total Antrian</Card.Text>
+                                            <Card.Title style={cardTitle}>{queue.count}</Card.Title>
+                                        </Col>
+                                    </Row>
+                                </>
+
+
                             </Card>
                             <Button className="mt-5 mb-3" onClick={handleShow} variant="outline-success" style={buttonStyle}>
                                 Cek Riwayat Antrian

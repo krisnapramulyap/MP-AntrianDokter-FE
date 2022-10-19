@@ -1,6 +1,6 @@
 import Table from 'react-bootstrap/Table';
 import { useRef, useEffect, useState } from "react";
-import { Link, useNavigate, useParams, Navigate, } from "react-router-dom";
+import { Link, useNavigate, useParams, Navigate } from "react-router-dom";
 import { Button, } from "react-bootstrap";
 import { AdminNavbar } from "./components/navbar/navbarAdmin"
 import { FooterHome } from "./components/footer/footer"
@@ -10,7 +10,7 @@ import "../css/style.css"
 
 export default function BerandaAdmin() {
 
-  const { id } = useParams();
+  const params = useParams();
   const navigate = useNavigate();
   const [book, setBook] = useState([]);
   const [data, setData] = useState([]);
@@ -45,7 +45,21 @@ export default function BerandaAdmin() {
     };
   }
 
-  const onUpdate = async (e, isDone) => {
+  const bookData = async () => {
+    const token = localStorage.getItem("token");
+    const response = await axios.get(`https://mediq-backend.herokuapp.com/api/bookings`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    console.log(response.data.data.data[0]);
+
+    const data = await response.data.data.data;
+    setBook(data);
+    console.log(data)
+  };
+
+  const onUpdate = async (e, id, isDone) => {
     e.preventDefault();
 
     try {
@@ -63,9 +77,9 @@ export default function BerandaAdmin() {
           },
         }
       );
-      console.log(updateRequest)
+      console.log(params.id)
 
-      const updateResponse = updateRequest.data;
+      const updateResponse = await updateRequest.data;
       console.log(updateResponse)
 
       console.log(updateResponse.status)
@@ -83,20 +97,6 @@ export default function BerandaAdmin() {
   };
 
   useEffect(() => {
-    const bookData = async () => {
-      const token = localStorage.getItem("token");
-      const response = await axios.get(`https://mediq-backend.herokuapp.com/api/bookings`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-      console.log(response);
-
-      const data = await response.data.data.data;
-      setBook(data);
-      console.log(data)
-    };
-
     onUpdate();
     getAdmin();
     bookData();
@@ -124,21 +124,33 @@ export default function BerandaAdmin() {
           </thead>
           {book ? (
             <tbody>
-              {book.map((book) =>
-                book.isDone === false ? (
-                  <tr key={book.id}>
-                    <td style={{ textAlign: 'center' }}>{book.queueNumber}</td>
-                    <td>{book.patientName}</td>
-                    <td style={{ textAlign: 'center' }}>{book.dateOfVisit}</td>
-                    <td>Keluhan</td>
-                    <td><Button onClick={(e) => onUpdate(e, true)} variant="link">Selesai</Button></td>
-                  </tr>
-                ) : (""))}
+              {book.map((book) => {
+                
+                return (
+                  book.isDone === false ? (
+                    <tr key={book.id}>
+                      <td style={{ textAlign: 'center' }}>{book.queueNumber}</td>
+                      <td>{book.patientName}</td>
+                      <td style={{ textAlign: 'center' }}>{book.dateOfVisit}</td>
+                      <td>Keluhan</td>
+                      <td><Button onClick={(e) => onUpdate(e, book.id, true)} variant="link">Selesai</Button></td>
+                    </tr>
+                  ) : (
+                    <tr key={book.id}>
+                      <td style={{ textAlign: 'center' }}>{book.queueNumber}</td>
+                      <td>{book.patientName}</td>
+                      <td style={{ textAlign: 'center' }}>{book.dateOfVisit}</td>
+                      <td>Keluhan</td>
+                      <td><Button onClick={(e) => onUpdate(e, true)} variant="link" style={{ color: 'grey' }}>Selesai</Button></td>
+                    </tr>
+                  )
+                )
+              })}
             </tbody>
           ) : ("")}
         </Table>
       </div>
-      <hr style={{ marginTop: '1700px' }} />
+      <hr style={{ marginTop: '2200px' }} />
       <FooterHome />
     </div>
   ) : (
